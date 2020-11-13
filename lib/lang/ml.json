@@ -98,5 +98,8 @@
   "exit_msg": "പുറത്തുകടക്കാൻ വീണ്ടും അമർത്തുക",
   "please_enter_valid_email": "ശരിയായ ഇമെയിൽ നൽകുക",
   "error_msg": "Connection lost! Please try again later",
-  "no_network": "No internet connection available!"
+  "no_network": "No internet connection available!",
+  "search":"തിരയൽ",
+  "otp":"ഒ ടി പി",
+  "createprofile":"പ്രൊഫൈൽ സൃഷ്ടിക്കുക"
 }

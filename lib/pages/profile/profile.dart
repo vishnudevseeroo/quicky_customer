@@ -156,7 +156,7 @@ class ProfileScreenState extends State<ProfileScreen> {
       width: double.infinity,
       child: Column(
         children: [
-          commonToolbar(context, 'Create Profile', false),
+          commonToolbar(context, 'createprofile', false),
           SizedBox(
             height: 15,
           ),

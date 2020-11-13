@@ -108,7 +108,7 @@ Widget commonEditTextForMobile(
                   counterText: '',
                   contentPadding: const EdgeInsets.only(left: 35, top: 20),
                   focusColor: primaryColor,
-                  errorText: isShowValidation ? errorMsg : null),
+                  errorText: isShowValidation ? errorMsg : ""),
               maxLength: maxLength,
               maxLengthEnforced: true,
               keyboardType: inputType,
@@ -189,7 +189,7 @@ Widget commonToolbar(@required BuildContext context, @required String pageTitle,
         height: 50,
         alignment: Alignment.center,
         child: Text(
-          pageTitle,
+          buildTranslate(context, pageTitle),
           style: isGreen
               ? TextStyle(
                   color: Colors.black,

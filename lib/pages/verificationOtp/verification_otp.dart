@@ -51,7 +51,7 @@ class OtpState extends State<OtpScreen> {
   Widget contentLayout() {
     return Column(
       children: [
-        commonToolbar(context, "", true),
+        commonToolbar(context, "otp", true),
         Expanded(
             child: Container(
           margin: EdgeInsets.only(left: 20, right: 20),

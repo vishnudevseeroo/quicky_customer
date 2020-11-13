@@ -1,6 +1,5 @@
 import 'dart:ui';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -18,6 +17,8 @@ class LoginScreen extends StatefulWidget {
 
 class LoginState extends State<LoginScreen> {
   final _controller = TextEditingController();
+
+  final _emailController = TextEditingController();
   bool isShowErrorMsg = false;
   String errorMsg = "";
   DateTime currentBackPressTime;

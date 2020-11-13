@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/utils/CommonWidgets.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';
 
@@ -12,27 +13,48 @@ class SelectCity extends StatefulWidget {
 
 class _SelectCityState extends State<SelectCity> {
   TextEditingController _searchFieldController = TextEditingController();
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(child: contentLayout()),
-    );
+        key: _scaffoldKey,
+        backgroundColor: Colors.white,
+        body: SafeArea(
+          child: Center(
+            child: Column(
+              children: <Widget>[
+                commonToolbar(context, 'select_city', true),
+                Padding(
+                  padding: const EdgeInsets.only(
+                      left: 30.0, right: 30, top: 15, bottom: 0),
+                  child: searchField(),
+                ),
+                Expanded(child: listView(context)),
+              ],
+            ),
+          ),
+        ));
   }
 
-  Widget contentLayout() {
-    return Column(
-      children: [
-        commonToolbar(context, 'Select City', true),
-        Container(
-          margin: EdgeInsets.only(left: 20, right: 20, top: 15),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              searchField(),
-            ],
-          ),
-        ),
-      ],
+  listView(
+    BuildContext context,
+  ) {
+    return Padding(
+      padding: const EdgeInsets.only(
+        left: 30.0,
+        right: 30,
+      ),
+      child: ListView.builder(
+          itemCount: 10,
+          itemBuilder: (context, int index) {
+            return ListTile(
+                leading: Icon(Icons.list),
+                title: Text(
+                  "List item $index",
+                  style: TextStyle(color: Colors.green, fontSize: 15),
+                ));
+          }),
     );
   }
 
@@ -70,7 +92,7 @@ class _SelectCityState extends State<SelectCity> {
 
               isDense: true,
               contentPadding: EdgeInsets.all(8),
-              hintText: 'Search',
+              hintText: buildTranslate(context, 'search'),
               hintStyle: TextStyle(fontSize: 14),
               prefixIcon: Icon(
                 Icons.search,

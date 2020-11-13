@@ -98,6 +98,9 @@
   "exit_msg": "Press again to exit",
   "please_enter_valid_email": "Please enter valid email",
   "error_msg": "Connection lost! Please try again later",
-  "no_network": "No internet connection available!"
+  "no_network": "No internet connection available!",
+  "search":"Search",
+  "otp":"OTP",
+  "createprofile":"Create Profile"
 
 }
