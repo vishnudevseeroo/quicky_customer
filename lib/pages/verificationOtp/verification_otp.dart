@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pin_input_text_field/pin_input_text_field.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
+import 'package:quicky_customer/pages/profile/profile.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/CommonWidgets.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';
@@ -238,6 +239,10 @@ class OtpState extends State<OtpScreen> {
     setState(() {
       _isButtonEnable = false;
     });
+
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ProfileScreen()));
+
     // ApiServices().verifyOtp(
     //     mobile: SharedPreffUtil().getMobile,
     //     otp: otpNumber,

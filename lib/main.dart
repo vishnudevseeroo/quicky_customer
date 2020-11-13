@@ -3,6 +3,8 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/localization/language_constants.dart';
 import 'package:quicky_customer/pages/login/login.dart';
+import 'package:quicky_customer/pages/profile/profile.dart';
+import 'package:quicky_customer/pages/select_city/select_city.dart';
 import 'package:quicky_customer/pages/select_language/select_language.dart';
 import 'package:quicky_customer/pages/splash_screen/splash_screen.dart';
 import 'package:quicky_customer/pages/verificationOtp/verification_otp.dart';
@@ -157,6 +159,8 @@ class _MyHomePageState extends State<MyHomePage> {
         OtpScreen.routeName: (context) => OtpScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),
         SelectLanguageScreen.routeName: (context) => SelectLanguageScreen(),
+        ProfileScreen.routeName: (context) => ProfileScreen(),
+        SelectCity.routeName: (context) => SelectCity(),
         LoginScreen.routeName: (context) => LoginScreen(),
       },
     );
