@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/localization/language_constants.dart';
+import 'package:quicky_customer/pages/login/login.dart';
+import 'package:quicky_customer/pages/select_language/select_language.dart';
+import 'package:quicky_customer/pages/splash_screen/splash_screen.dart';
+import 'package:quicky_customer/pages/verificationOtp/verification_otp.dart';
 import 'package:quicky_customer/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-import 'splash_screen/splash_screen.dart';
 
 // Future main() async {
 //   WidgetsFlutterBinding.ensureInitialized();
@@ -152,8 +154,10 @@ class _MyHomePageState extends State<MyHomePage> {
       },
       home: SpalshScreen(),
       routes: {
-        // LoginPage.routeName: (context) => LoginPage(),
-        // mainHomePage.routeName: (context) => mainHomePage()
+        OtpScreen.routeName: (context) => OtpScreen(),
+        LoginScreen.routeName: (context) => LoginScreen(),
+        SelectLanguageScreen.routeName: (context) => SelectLanguageScreen(),
+        LoginScreen.routeName: (context) => LoginScreen(),
       },
     );
   }

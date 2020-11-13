@@ -6,15 +6,17 @@ import 'package:flutter/widgets.dart';
 import 'package:quicky_customer/main.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/localization/language_constants.dart';
+import 'package:quicky_customer/pages/login/login.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';
 import 'package:quicky_customer/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class SelectLanguageScreen extends StatefulWidget {
+  static const routeName = '/selectlanguage';
   bool isFromSplashScreen = false;
 
-  SelectLanguageScreen({@required bool isFromSplashScreen}) {
+  SelectLanguageScreen({bool isFromSplashScreen}) {
     this.isFromSplashScreen = isFromSplashScreen;
   }
 
@@ -101,7 +103,10 @@ class SelectLanguageState extends State<SelectLanguageScreen> {
         languageSelectionLayout(),
         FlatButton(
             height: 70,
-            onPressed: () {},
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()));
+            },
             shape: new CircleBorder(),
             color: Colors.white,
             child: Icon(Icons.arrow_forward))

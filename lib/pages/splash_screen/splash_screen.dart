@@ -9,6 +9,7 @@ import 'package:quicky_customer/utils/FontSizeUtil.dart';
 import 'package:quicky_customer/utils/constants.dart';
 
 class SpalshScreen extends StatefulWidget {
+  static const routeName = '/splashscreen';
   @override
   SplashScreenState createState() => SplashScreenState();
 }
