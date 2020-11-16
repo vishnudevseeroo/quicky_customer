@@ -5,6 +5,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pin_input_text_field/pin_input_text_field.dart';
+import 'package:quicky_customer/pages/dashboard.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/profile/profile.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
@@ -87,16 +88,27 @@ class OtpState extends State<OtpScreen> {
               SizedBox(
                 height: 40,
               ),
-              commonRoungButtonGreen(buildTranslate(context, 'verify_code'),
-                  () {
-                // button click here
-                if (_isButtonEnable) {
-                  setState(() {
-                    _isShowProgressIndicator = true;
-                  });
-                  validateOtp();
-                }
-              }, 290),
+              // commonRoungButtonGreen(buildTranslate(context, 'verify_code'),
+              //     () {
+              //
+              //   // button click here
+              //   if (_isButtonEnable) {
+              //     setState(() {
+              //       _isShowProgressIndicator = true;
+              //     });
+              //     validateOtp();
+              //   }
+              // }, 290),
+
+FlatButton(
+onPressed: (){  Navigator.push(context,
+MaterialPageRoute(builder: (context) => DashboardPage()));},
+child: Text("submit"),
+color: Colors.green,
+),
+
+
+
               SizedBox(
                 height: 30,
               ),
@@ -106,6 +118,7 @@ class OtpState extends State<OtpScreen> {
                   _isResendEnable
                       ? GestureDetector(
                           onTap: () {
+
                             validateOtp();
                             setState(() {
                               _isResendEnable = false;
