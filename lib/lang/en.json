@@ -101,6 +101,20 @@
   "no_network": "No internet connection available!",
   "search":"Search",
   "otp":"OTP",
-  "createprofile":"Create Profile"
+  "createprofile":"Create Profile",
+  "business_ccount":"Business Account",
+  "about_Us" : "About Us",
+  "cart":"Cart",
+  "profile" : "Profile",
+  "my_orders":"My Orders",
+  "refer_friend" : "Refer A Friend",
+  "rate_app":"Rate App",
+  "my_address":"My Address"
 
+ 
 }
+
+
+
+
+

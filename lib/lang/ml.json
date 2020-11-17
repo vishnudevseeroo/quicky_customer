@@ -101,5 +101,13 @@
   "no_network": "No internet connection available!",
   "search":"തിരയൽ",
   "otp":"ഒ ടി പി",
-  "createprofile":"പ്രൊഫൈൽ സൃഷ്ടിക്കുക"
+  "createprofile":"പ്രൊഫൈൽ സൃഷ്ടിക്കുക",
+  "business_ccount":"ബിസിനസ്സ് അക്കൗണ്ട്",
+  "about_Us" : "ഞങ്ങളേക്കുറിച്ച്",
+  "cart":"Cart",
+  "profile" : "പ്രൊഫൈൽ",
+  "my_orders":"My Orders",
+  "refer_friend" : "Refer A Friend",
+  "rate_app":"Rate App",
+  "my_address":"My Address"
 }

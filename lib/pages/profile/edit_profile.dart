@@ -1,23 +1,22 @@
+import 'package:flutter/material.dart';
 import 'dart:io';
 import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:fluttertoast/fluttertoast.dart';
+
 import 'package:image_picker/image_picker.dart';
 import 'package:quicky_customer/pages/select_city/select_city.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/CommonWidgets.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';
 
-class ProfileScreen extends StatefulWidget {
-  static const routeName = '/profilescreen';
+class EditProfile extends StatefulWidget {
+  static const routeName = '/editprofile';
   @override
-  ProfileScreenState createState() => ProfileScreenState();
+  _EditProfileState createState() => _EditProfileState();
 }
 
-class ProfileScreenState extends State<ProfileScreen> {
+class _EditProfileState extends State<EditProfile> {
   var _nameController = new TextEditingController();
   var _emailController = new TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
@@ -52,7 +51,9 @@ class ProfileScreenState extends State<ProfileScreen> {
   Widget buildFirstName() {
     return TextFormField(
       controller: _nameController,
-      decoration: InputDecoration(labelText: 'Name'),
+      //decoration: InputDecoration(labelText: 'Name'),
+      decoration:
+          InputDecoration(prefixIcon: Icon(Icons.person), labelText: 'Name'),
       validator: (String value) {
         if (value.isEmpty) {
           return 'Please enter profile name';
@@ -68,7 +69,25 @@ class ProfileScreenState extends State<ProfileScreen> {
   Widget buildLastName() {
     return TextFormField(
       controller: _emailController,
-      decoration: InputDecoration(labelText: 'Email Id'),
+      decoration:
+          InputDecoration(prefixIcon: Icon(Icons.email), labelText: 'Email'),
+      validator: (String value) {
+        if (value.isEmpty) {
+          return 'This field is Required';
+        }
+        return null;
+      },
+      onChanged: (String value) {
+        lastName = value;
+      },
+    );
+  }
+
+  Widget phoneNumber() {
+    return TextFormField(
+      controller: _emailController,
+      decoration: InputDecoration(
+          prefixIcon: Icon(Icons.phone), labelText: 'Phone number'),
       validator: (String value) {
         if (value.isEmpty) {
           return 'This field is Required';
@@ -89,39 +108,39 @@ class ProfileScreenState extends State<ProfileScreen> {
           Padding(
             padding: EdgeInsets.only(left: 25, right: 25),
           ),
-          // Container(
-          //   margin: EdgeInsets.only(left: 30, top: 20),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       Text(
-          //         '',
-          //         style: TextStyle(
-          //             color: Colors.black,
-          //             fontWeight: FontWeight.bold,
-          //             fontSize: heading4),
-          //       ),
-          //       FlatButton(
-          //           height: 35,
-          //           onPressed: () {
-          //             setState(() {
-          //               if (_isEdit) {
-          //                 _isEdit = false;
-          //               } else {
-          //                 _isEdit = true;
-          //               }
-          //             });
-          //           },
-          //           shape: new CircleBorder(),
-          //           color: primaryColor,
-          //           child: Icon(
-          //             Icons.edit,
-          //             color: Colors.white,
-          //             size: 20,
-          //           ))
-          //     ],
-          //   ),
-          // ),
+          Container(
+            margin: EdgeInsets.only(left: 30, top: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  '',
+                  style: TextStyle(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize: heading4),
+                ),
+                FlatButton(
+                    height: 35,
+                    onPressed: () {
+                      setState(() {
+                        if (_isEdit) {
+                          _isEdit = false;
+                        } else {
+                          _isEdit = true;
+                        }
+                      });
+                    },
+                    shape: new CircleBorder(),
+                    color: primaryColor,
+                    child: Icon(
+                      Icons.edit,
+                      color: Colors.white,
+                      size: 20,
+                    ))
+              ],
+            ),
+          ),
           Padding(
             padding: EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
             child: Form(
@@ -130,10 +149,12 @@ class ProfileScreenState extends State<ProfileScreen> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   buildFirstName(),
-                  SizedBox(height: 5),
+                  SizedBox(height: 8),
                   buildLastName(),
+                  SizedBox(height: 8),
+                  phoneNumber(),
                   SizedBox(height: 60),
-                  getBottomButton()
+                  _isEdit ? getBottomButton() : Container(),
                 ],
               ),
             ),
@@ -145,14 +166,14 @@ class ProfileScreenState extends State<ProfileScreen> {
 
   Widget getHeaderLayout() {
     return Container(
-      padding: EdgeInsets.only(bottom: 30, top: 30),
-      // decoration: BoxDecoration(
-      //     image: new DecorationImage(
-      //         image: AssetImage('assets/images/splash.png'), fit: BoxFit.cover),
-      //     boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 10.0)],
-      //     borderRadius: BorderRadius.only(
-      //         bottomLeft: Radius.circular(30),
-      //         bottomRight: Radius.circular(30))),
+      padding: EdgeInsets.only(bottom: 50, top: 30),
+      decoration: BoxDecoration(
+          image: new DecorationImage(
+              image: AssetImage('assets/images/splash.png'), fit: BoxFit.cover),
+          boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 10.0)],
+          borderRadius: BorderRadius.only(
+              bottomLeft: Radius.circular(30),
+              bottomRight: Radius.circular(30))),
       width: double.infinity,
       child: Column(
         children: [
