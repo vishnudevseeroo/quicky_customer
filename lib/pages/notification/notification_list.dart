@@ -1,23 +1,20 @@
-
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';
 
 import 'package:flutter/material.dart';
 
-class DashboardPage extends StatefulWidget {
+class NotificationList extends StatefulWidget {
   @override
-  _DashboardPageState createState() => _DashboardPageState();
+  _NotificationListState createState() => _NotificationListState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _NotificationListState extends State<NotificationList> {
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
-      appBar: AppBar(
-      ),
-      body: getNotificationLayout() ,
+      appBar: AppBar(),
+      body: getNotificationLayout(),
     );
   }
 
@@ -39,6 +36,7 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
     );
   }
+
   Widget toolBarForNotification(@required BuildContext context,
       @required String pageTitle, @required bool isGreen) {
     return Stack(
@@ -64,13 +62,13 @@ class _DashboardPageState extends State<DashboardPage> {
             pageTitle,
             style: isGreen
                 ? TextStyle(
-                color: Colors.black,
-                fontSize: normalSize,
-                fontWeight: FontWeight.bold)
+                    color: Colors.black,
+                    fontSize: normalSize,
+                    fontWeight: FontWeight.bold)
                 : TextStyle(
-                color: Colors.white,
-                fontSize: normalSize,
-                fontWeight: FontWeight.bold),
+                    color: Colors.white,
+                    fontSize: normalSize,
+                    fontWeight: FontWeight.bold),
             textAlign: TextAlign.center,
           ),
         ),
@@ -128,8 +126,4 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
     );
   }
-
-
-
-
 }

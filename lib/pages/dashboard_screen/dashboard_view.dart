@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quicky_customer/pages/dashboard_screen/home_screen.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
+import 'package:quicky_customer/pages/notification/notification_list.dart';
 import 'package:quicky_customer/pages/profile/edit_profile.dart';
 import 'package:quicky_customer/pages/profile/profile.dart';
 
@@ -57,7 +58,7 @@ class _DashboardPageState extends State<DashboardPage> {
               key: navigatorKeys[1],
               onGenerateRoute: (route) => MaterialPageRoute(
                 settings: route,
-                builder: (context) => ProfileScreen(),
+                builder: (context) => NotificationList(),
               ),
             ),
             Navigator(
