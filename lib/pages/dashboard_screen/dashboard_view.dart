@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quicky_customer/pages/cart/cart_screen.dart';
 import 'package:quicky_customer/pages/dashboard_screen/home_screen.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/notification/notification_list.dart';
@@ -26,6 +27,11 @@ class _DashboardPageState extends State<DashboardPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+  }
+
+  toCartUi() {
+    Navigator.pushReplacement(
+        context, MaterialPageRoute(builder: (context) => CartPage()));
   }
 
   @override
@@ -65,7 +71,7 @@ class _DashboardPageState extends State<DashboardPage> {
               key: navigatorKeys[2],
               onGenerateRoute: (route) => MaterialPageRoute(
                 settings: route,
-                builder: (context) => ProfileScreen(),
+                builder: (context) => CartPage(),
               ),
             ),
             Navigator(
@@ -91,7 +97,7 @@ class _DashboardPageState extends State<DashboardPage> {
           navigatorKeys[1].currentState.popUntil((route) => route.isFirst);
           break;
         case 2:
-          navigatorKeys[2].currentState.popUntil((route) => route.isFirst);
+           navigatorKeys[2].currentState.popUntil((route) => route.isFirst);
           break;
 
         case 3:

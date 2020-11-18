@@ -61,6 +61,7 @@ class DashboardState extends State<DashboardScreen> {
         case 3:
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => ProfileScreen()));
+
           break;
         default:
           _selectedIndex = index;

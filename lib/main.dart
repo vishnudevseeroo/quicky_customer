@@ -8,6 +8,7 @@ import 'package:quicky_customer/pages/profile/profile.dart';
 import 'package:quicky_customer/pages/select_city/select_city.dart';
 import 'package:quicky_customer/pages/select_language/select_language.dart';
 import 'package:quicky_customer/pages/splash_screen/splash_screen.dart';
+import 'package:quicky_customer/pages/success/success_screen.dart';
 import 'package:quicky_customer/pages/verificationOtp/verification_otp.dart';
 import 'package:quicky_customer/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -164,6 +165,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ProfileScreen.routeName: (context) => ProfileScreen(),
         SelectCity.routeName: (context) => SelectCity(),
         DashboardScreen.routeName: (context) => DashboardScreen(),
+        SuccessScreen.routeName: (context) => SuccessScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),
       },
     );

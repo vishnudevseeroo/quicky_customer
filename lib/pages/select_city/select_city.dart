@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:quicky_customer/pages/dashboard_screen/dashboard_screen.dart';
 import 'package:quicky_customer/pages/dashboard_screen/dashboard_view.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
+import 'package:quicky_customer/pages/success/success_screen.dart';
 import 'package:quicky_customer/utils/CommonWidgets.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';
 
@@ -53,7 +54,7 @@ class _SelectCityState extends State<SelectCity> {
             return InkWell(
               onTap: () {
                 Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => DashboardPage()));
+                    MaterialPageRoute(builder: (context) => SuccessScreen()));
               },
               child: ListTile(
                   leading: Icon(Icons.list),

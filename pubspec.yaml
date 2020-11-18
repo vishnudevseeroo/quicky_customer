@@ -38,6 +38,7 @@ dependencies:
   fluttertoast: ^7.1.1
   pin_input_text_field: ^3.1.1
   image_picker: ^0.6.7+11
+  carousel_slider: ^2.1.0
 
 dev_dependencies:
   flutter_test:
