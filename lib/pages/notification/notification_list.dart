@@ -13,7 +13,30 @@ class _NotificationListState extends State<NotificationList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.black),
+        leading: Transform.scale(
+          scale: 0.6,
+          child: FlatButton(
+            shape: CircleBorder(),
+            color: primaryColor,
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Icon(
+              Icons.arrow_back_ios_outlined,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        centerTitle: true,
+        title: Text(
+          "Notification",
+          style: TextStyle(color: Colors.black),
+        ),
+        backgroundColor: Colors.white,
+      ),
       body: getNotificationLayout(),
     );
   }
@@ -78,6 +101,7 @@ class _NotificationListState extends State<NotificationList> {
 
   Widget notificationChildItem() {
     return Container(
+      color: Colors.white,
       width: double.infinity,
       child: Column(
         children: [
@@ -89,7 +113,7 @@ class _NotificationListState extends State<NotificationList> {
                 CircleAvatar(
                   radius: 20.0,
                   backgroundImage: AssetImage('assets/images/logo1.png'),
-                  backgroundColor: Colors.transparent,
+                  backgroundColor: Colors.white,
                 ),
                 SizedBox(
                   width: 20,

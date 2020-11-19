@@ -19,12 +19,12 @@ class _ProductQuantitySelectorState extends State<ProductQuantitySelector> {
     print('qty selector building');
     return Container(
         height: 60,
-        // color: Colors.grey[200],
+        color: Colors.grey[200],
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Text(
-              'QTY',
+              'Quantity',
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             IconButton(

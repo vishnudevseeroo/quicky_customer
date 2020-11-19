@@ -5,6 +5,7 @@ import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:quicky_customer/pages/cart/cart_other_details.dart';
 import 'package:quicky_customer/pages/cart/quantity_selector.dart';
 import 'package:quicky_customer/pages/product_details/product_details.dart';
+import 'package:quicky_customer/utils/ColorUtil.dart';
 
 class CartPage extends StatefulWidget {
   static const routeName = '/cart-page';
@@ -32,13 +33,24 @@ class _CartPageState extends State<CartPage> {
       key: _scaffoldKey,
       backgroundColor: Color.fromRGBO(241, 244, 253, 1),
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
         iconTheme: IconThemeData(color: Colors.black),
         centerTitle: true,
-        leading: IconButton(
-            icon: Icon(Icons.arrow_back),
+        leading: Transform.scale(
+          scale: 0.6,
+          child: FlatButton(
+            shape: CircleBorder(),
+            color: primaryColor,
             onPressed: () {
-              Navigator.pop(context, true);
-            }),
+              Navigator.of(context).pop();
+            },
+            child: Icon(
+              Icons.arrow_back_ios_outlined,
+              color: Colors.white,
+            ),
+          ),
+        ),
         title: Text(
           'Cart',
           style: TextStyle(color: Colors.black),

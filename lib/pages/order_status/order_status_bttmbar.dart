@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ProductDetailBottomBar extends StatefulWidget {
+class OrderStatusBottomBar extends StatefulWidget {
   // final ProductInfo product;
   // final MultiUomDetails chosenUom;
   // final Function(bool) overlayLoadCallBack;
@@ -9,10 +9,10 @@ class ProductDetailBottomBar extends StatefulWidget {
   //     : super(key: key);
 
   @override
-  _ProductDetailBottomBarState createState() => _ProductDetailBottomBarState();
+  _OrderStatusBottomBarState createState() => _OrderStatusBottomBarState();
 }
 
-class _ProductDetailBottomBarState extends State<ProductDetailBottomBar> {
+class _OrderStatusBottomBarState extends State<OrderStatusBottomBar> {
   @override
   Widget build(BuildContext context) {
     print('bottom bar building');

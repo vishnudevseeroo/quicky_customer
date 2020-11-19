@@ -18,7 +18,7 @@ class RelatedProductsList extends StatelessWidget {
           ),
         ),
         Container(
-          height: 210,
+          height: 230,
           // margin: EdgeInsets.symmetric(vertical: 16),
           child: ListView.separated(
               padding: EdgeInsets.all(16),

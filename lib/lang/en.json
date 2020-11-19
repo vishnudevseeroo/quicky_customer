@@ -109,7 +109,10 @@
   "my_orders":"My Orders",
   "refer_friend" : "Refer A Friend",
   "rate_app":"Rate App",
-  "my_address":"My Address"
+  "my_address":"My Address",
+  "my_order":"My Order",
+  "order_status":"Order Status"
+
 
  
 }

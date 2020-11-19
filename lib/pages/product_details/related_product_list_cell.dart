@@ -29,7 +29,7 @@ class RelatedProductListCell extends StatelessWidget {
             },
             child: Container(
               width: double.infinity,
-//              color: Colors.green,
+              //color: Colors.green,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -41,12 +41,29 @@ class RelatedProductListCell extends StatelessWidget {
                       image: NetworkImage(imgList[0]),
                     ),
                   ),
+                  SizedBox(
+                    height: 8,
+                  ),
                   Text(
                     "en langers",
                     textAlign: TextAlign.center,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
+                    style:
+                        TextStyle(fontSize: 15, fontWeight: FontWeight.normal),
+                  ),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  Text(
+                    "Rs 2019",
+                    textAlign: TextAlign.center,
+                    maxLines: 2,
+                    overflow: TextOverflow.ellipsis,
                     style: TextStyle(fontSize: 15, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    height: 8,
                   ),
                 ],
               ),

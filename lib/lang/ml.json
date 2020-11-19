@@ -104,10 +104,12 @@
   "createprofile":"പ്രൊഫൈൽ സൃഷ്ടിക്കുക",
   "business_ccount":"ബിസിനസ്സ് അക്കൗണ്ട്",
   "about_Us" : "ഞങ്ങളേക്കുറിച്ച്",
-  "cart":"Cart",
+  "cart":"കാർട്ട്",
   "profile" : "പ്രൊഫൈൽ",
-  "my_orders":"My Orders",
-  "refer_friend" : "Refer A Friend",
-  "rate_app":"Rate App",
-  "my_address":"My Address"
+  "my_orders":"എന്റെ ഓർഡർ",
+  "refer_friend" : "സുഹൃത്തിനെ പരിചയപ്പെടുത്തുക",
+  "rate_app":"അപ്ലിക്കേഷൻ റേറ്റുചെയ്യുക",
+  "my_address":"എന്റെ വിലാസം",
+  "my_order":"എന്റെ ഓർഡർ",
+  "order_status":"ഓർഡർ നില"
 }
