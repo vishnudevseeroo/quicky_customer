@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:quicky_customer/pages/navigation_drawer/NavigationDrawerScreen.dart';
+import 'package:quicky_customer/pages/restuarant_details/restaurantlist.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -157,19 +158,27 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(20)),
                     child: Row(
                       children: <Widget>[
-                        Container(
-                          width: MediaQuery.of(context).size.height / 4,
-                          // height: 40,
-                          decoration: new BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: new DecorationImage(
-                              fit: BoxFit.cover,
-                              image: AssetImage('assets/images/burger.png'),
+                        InkWell(
+                          onTap: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => RestaurantScreen()));
+                          },
+                          child: Container(
+                            width: MediaQuery.of(context).size.height / 4,
+                            // height: 40,
+                            decoration: new BoxDecoration(
+                              shape: BoxShape.circle,
+                              image: new DecorationImage(
+                                fit: BoxFit.cover,
+                                image: AssetImage('assets/images/burger.png'),
+                              ),
                             ),
+                            // child: Image.asset(
+                            //   'assets/images/burger.png',
+                            // ),
                           ),
-                          // child: Image.asset(
-                          //   'assets/images/burger.png',
-                          // ),
                         ),
                       ],
                     ),

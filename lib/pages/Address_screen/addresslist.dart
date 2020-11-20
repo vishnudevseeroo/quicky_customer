@@ -3,6 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 import 'package:quicky_customer/pages/Payment_methods/cardpayment.dart';
 import 'package:quicky_customer/pages/localization/language_constants.dart';
+import 'package:quicky_customer/pages/payment_method/payment_method.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
@@ -51,13 +52,12 @@ class _AddressPageState extends State<AddressPage> {
   Widget deliveryAddress() {
     return Column(
       children: [
-
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 50, 20, 20),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-               // Example1Horizontal(),
+              // Example1Horizontal(),
               Container(
                 height: 15,
                 width: 15,
@@ -157,13 +157,12 @@ class _AddressPageState extends State<AddressPage> {
         SizedBox(
           height: 30,
         ),
-       addressList(),
+        addressList(),
       ],
     );
   }
 
-
-  Widget addressList(){
+  Widget addressList() {
     return ListView.builder(
         scrollDirection: Axis.vertical,
         shrinkWrap: true,
@@ -197,8 +196,7 @@ class _AddressPageState extends State<AddressPage> {
                                 SizedBox(
                                   height: 5,
                                 ),
-                                Text(
-                                    "Ayilakkad Road, Naduvattom, Edappal,"),
+                                Text("Ayilakkad Road, Naduvattom, Edappal,"),
                                 Text("Pincode - 679571"),
                               ]),
                         ),
@@ -209,8 +207,8 @@ class _AddressPageState extends State<AddressPage> {
                             color: primaryColor,
                             child: Text(
                               'EDIT',
-                              style: TextStyle(
-                                  color: primaryColor, fontSize: 16),
+                              style:
+                                  TextStyle(color: primaryColor, fontSize: 16),
                             ),
                           ),
                         ),
@@ -229,9 +227,7 @@ class _AddressPageState extends State<AddressPage> {
     return GestureDetector(
       onTap: () {
         Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => CardPayment()));
+            context, MaterialPageRoute(builder: (context) => PaymentMethod()));
         print('button clicked');
       },
       child: Container(
@@ -252,7 +248,6 @@ class _AddressPageState extends State<AddressPage> {
       ),
     );
   }
-
 }
 
 class Example1Horizontal extends StatelessWidget {

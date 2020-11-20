@@ -2,8 +2,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:quicky_customer/pages/Address_screen/addresslist.dart';
 import 'package:quicky_customer/pages/cart/cart_other_details.dart';
 import 'package:quicky_customer/pages/cart/quantity_selector.dart';
+import 'package:quicky_customer/pages/my_address/my_address.dart';
 import 'package:quicky_customer/pages/product_details/product_details.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 
@@ -187,7 +189,7 @@ class _CartPageState extends State<CartPage> {
                       Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) => ProductDetailPage()));
+                              builder: (context) => AddressPage()));
                     },
                   ),
                   ClipRRect(
@@ -215,11 +217,10 @@ class _CartPageState extends State<CartPage> {
                           ],
                         ),
                         onPressed: () {
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (context) =>
-                          //             CartShippingAddressPage()));
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => AddressPage()));
                           print('cilcked');
                         },
                       ),

@@ -210,21 +210,22 @@ class NavigationDrawer extends StatelessWidget {
         Navigator.push(
             context,
             MaterialPageRoute(
-                builder: (context) => SelectLanguageScreen(
-                      isFromSplashScreen: false,
+                builder: (context) => PaymentMethod(
+                    //isFromSplashScreen: false,
                     )));
         break;
       case 5:
-        Navigator.pop(context);
-
-        break;
-      case 6:
         Navigator.push(
             context,
             MaterialPageRoute(
                 builder: (context) => SelectLanguageScreen(
                       isFromSplashScreen: false,
                     )));
+
+        break;
+      case 6:
+        Navigator.pop(context);
+
         break;
       case 7:
         Navigator.push(context,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quicky_customer/pages/cart/cart_screen.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 
 class ProductDetailBottomBar extends StatefulWidget {
@@ -43,7 +44,12 @@ class _ProductDetailBottomBarState extends State<ProductDetailBottomBar> {
                                 color: Colors.white,
                                 fontWeight: FontWeight.bold),
                           ),
-                          onPressed: () {}),
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => CartPage()));
+                          }),
                     ),
                   ),
                   widget.isIcon

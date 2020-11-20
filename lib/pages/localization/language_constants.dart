@@ -1,8 +1,3 @@
-// const String LAGUAGE_CODE = 'languageCode';
-//
-// //languages code
-// const String ENGLISH = 'en';
-// const String MALAYALAM = 'ml';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
