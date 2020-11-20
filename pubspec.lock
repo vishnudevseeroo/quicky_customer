@@ -15,6 +15,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "2.1.0-nullsafety.1"
+  carousel_slider:
+    dependency: "direct main"
+    description:
+      name: carousel_slider
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "2.3.1"
   characters:
     dependency: transitive
     description:
@@ -88,6 +95,13 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.0.11"
+  flutter_rating_bar:
+    dependency: "direct main"
+    description:
+      name: flutter_rating_bar
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "3.2.0+1"
   flutter_test:
     dependency: "direct dev"
     description: flutter
@@ -328,7 +342,7 @@ packages:
     source: hosted
     version: "0.2.19-nullsafety.2"
   timeline_tile:
-    dependency: "direct dev"
+    dependency: "direct main"
     description:
       name: timeline_tile
       url: "https://pub.dartlang.org"

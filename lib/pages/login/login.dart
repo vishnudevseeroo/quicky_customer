@@ -36,7 +36,7 @@ class LoginState extends State<LoginScreen> {
               FocusScope.of(context).requestFocus(new FocusNode());
             },
             child: SafeArea(
-              child: loginLayout(),
+              child: SingleChildScrollView(child: Center(child: loginLayout())),
             ),
           )),
     );
@@ -46,8 +46,8 @@ class LoginState extends State<LoginScreen> {
     return Container(
       color: Colors.white,
       margin: EdgeInsets.only(left: 30, right: 30),
-      width: double.infinity,
-      height: double.infinity,
+      // width: double.infinity,
+      // height: double.infinity,
       child: Column(
         children: [
           SizedBox(

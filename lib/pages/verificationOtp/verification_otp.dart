@@ -89,6 +89,9 @@ class OtpState extends State<OtpScreen> {
               ),
               commonRoungButtonGreen(buildTranslate(context, 'verify_code'),
                   () {
+
+// button click here
+
                 if (_isButtonEnable) {
                   setState(() {
                     _isShowProgressIndicator = true;
@@ -101,6 +104,16 @@ class OtpState extends State<OtpScreen> {
 
 
 
+
+              // FlatButton(
+              //   onPressed: () {
+              //     Navigator.push(context,
+              //         MaterialPageRoute(builder: (context) => DashboardPage()));
+              //   },
+              //   child: Text("submit"),
+              //   color: Colors.green,
+              // ),
+
               SizedBox(
                 height: 30,
               ),
@@ -110,7 +123,6 @@ class OtpState extends State<OtpScreen> {
                   _isResendEnable
                       ? GestureDetector(
                           onTap: () {
-
                             validateOtp();
                             setState(() {
                               _isResendEnable = false;

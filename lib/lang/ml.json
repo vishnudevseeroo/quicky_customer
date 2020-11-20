@@ -101,5 +101,24 @@
   "no_network": "No internet connection available!",
   "search":"തിരയൽ",
   "otp":"ഒ ടി പി",
-  "createprofile":"പ്രൊഫൈൽ സൃഷ്ടിക്കുക"
+  "createprofile":"പ്രൊഫൈൽ സൃഷ്ടിക്കുക",
+  "business_ccount":"ബിസിനസ്സ് അക്കൗണ്ട്",
+  "about_Us" : "ഞങ്ങളേക്കുറിച്ച്",
+  "cart":"കാർട്ട്",
+  "profile" : "പ്രൊഫൈൽ",
+  "my_orders":"എന്റെ ഓർഡർ",
+  "refer_friend" : "സുഹൃത്തിനെ പരിചയപ്പെടുത്തുക",
+  "rate_app":"അപ്ലിക്കേഷൻ റേറ്റുചെയ്യുക",
+  "my_address":"എന്റെ വിലാസം",
+  "my_order":"എന്റെ ഓർഡർ",
+  "order_status":"ഓർഡർ നില",
+  "payment_method":"പണംകൊടുക്കൽരീതി",
+  "current_method":"നിലവിലെ രീതി",
+  "add_payment_mode":"പേയ്‌മെന്റ് മോഡ് ചേർക്കുക",
+  "bag":"ബാഗ്",
+  "payment":"പേയ്മെന്റ്",
+  "saved_addresses" : "സംരക്ഷിച്ച വിലാസങ്ങൾ",
+  "add_new_address" : "പുതിയ വിലാസം ചേർക്കുക",
+  "add_to_cart" : "കാർട്ടിലേക്ക് ചേർക്കുക"
+ 
 }

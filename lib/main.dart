@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:quicky_customer/pages/dashboard_screen/dashboard_screen.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/localization/language_constants.dart';
 import 'package:quicky_customer/pages/login/login.dart';
@@ -7,6 +8,7 @@ import 'package:quicky_customer/pages/profile/profile.dart';
 import 'package:quicky_customer/pages/select_city/select_city.dart';
 import 'package:quicky_customer/pages/select_language/select_language.dart';
 import 'package:quicky_customer/pages/splash_screen/splash_screen.dart';
+import 'package:quicky_customer/pages/success/success_screen.dart';
 import 'package:quicky_customer/pages/verificationOtp/verification_otp.dart';
 import 'package:quicky_customer/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -134,7 +136,7 @@ class _MyHomePageState extends State<MyHomePage> {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Localization',
-      theme: ThemeData(primaryColor: Colors.blue[800]),
+      theme: ThemeData(primaryColor: Colors.greenAccent[700]),
       supportedLocales: [
         Locale('en', 'US'),
         Locale('ml', 'IN'),
@@ -162,6 +164,8 @@ class _MyHomePageState extends State<MyHomePage> {
         SelectLanguageScreen.routeName: (context) => SelectLanguageScreen(),
         ProfileScreen.routeName: (context) => ProfileScreen(),
         SelectCity.routeName: (context) => SelectCity(),
+        DashboardScreen.routeName: (context) => DashboardScreen(),
+        SuccessScreen.routeName: (context) => SuccessScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),
       },
     );
