@@ -5,8 +5,10 @@ import 'package:flutter/rendering.dart';
 import 'package:quicky_customer/pages/contact_us/contact_us.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/login/login.dart';
+import 'package:quicky_customer/pages/my_address/my_address.dart';
 import 'package:quicky_customer/pages/my_orders/my_orders.dart';
-import 'package:quicky_customer/pages/order_status/timeline.dart';
+import 'package:quicky_customer/pages/payment_method/payment_method.dart';
+import 'package:quicky_customer/pages/profile/edit_profile.dart';
 import 'package:quicky_customer/pages/profile/profile.dart';
 import 'package:quicky_customer/pages/select_language/select_language.dart';
 import 'package:quicky_customer/utils/CommonWidgets.dart';
@@ -188,20 +190,17 @@ class NavigationDrawer extends StatelessWidget {
   void openNewScreen(int index, BuildContext context) {
     switch (index) {
       case 0:
-        // Navigator.push(
-        //     context,
-        //     MaterialPageRoute(
-        //         builder: (context) => ScreenProgress(
-        //               ticks: 0,
-        //             )));
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => EditProfile()));
         break;
       case 1:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ProfileScreen()));
+            context, MaterialPageRoute(builder: (context) => MyOrderScreen()));
+
         break;
       case 2:
         Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MyOrderScreen()));
+            context, MaterialPageRoute(builder: (context) => MyAddress()));
         break;
       case 3:
         Navigator.push(
@@ -217,6 +216,15 @@ class NavigationDrawer extends StatelessWidget {
         break;
       case 5:
         Navigator.pop(context);
+
+        break;
+      case 6:
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => SelectLanguageScreen(
+                      isFromSplashScreen: false,
+                    )));
         break;
       case 7:
         Navigator.push(context,

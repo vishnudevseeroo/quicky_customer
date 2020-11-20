@@ -121,10 +121,12 @@ class _ProductDetailPageState extends State<ProductDetailPage> {
                   ),
                 ),
                 ProductDetailBottomBar(
-                    // product: productDetails.product,
-                    // chosenUom: selectedUom,
-                    // overlayLoadCallBack: overlayLoadCallBack,
-                    )
+                  tittle: "add_to_cart",
+                  isIcon: true,
+                  // product: productDetails.product,
+                  // chosenUom: selectedUom,
+                  // overlayLoadCallBack: overlayLoadCallBack,
+                )
               ],
             ),
     );

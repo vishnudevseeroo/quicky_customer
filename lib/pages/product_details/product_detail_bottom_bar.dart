@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:quicky_customer/pages/localization/app_localizations.dart';
 
 class ProductDetailBottomBar extends StatefulWidget {
+  final String tittle;
+  final bool isIcon;
   // final ProductInfo product;
   // final MultiUomDetails chosenUom;
   // final Function(bool) overlayLoadCallBack;
-  // const ProductDetailBottomBar(
-  //     {Key key, this.product, this.chosenUom, this.overlayLoadCallBack})
-  //     : super(key: key);
+  const ProductDetailBottomBar({Key key, this.tittle, this.isIcon})
+      : super(key: key);
 
   @override
   _ProductDetailBottomBarState createState() => _ProductDetailBottomBarState();
@@ -35,7 +37,7 @@ class _ProductDetailBottomBarState extends State<ProductDetailBottomBar> {
                       child: FlatButton(
                           //color: Colors.grey,
                           child: Text(
-                            'Add to Cart',
+                            buildTranslate(context, widget.tittle),
                             style: TextStyle(
                                 fontSize: 16,
                                 color: Colors.white,
@@ -44,12 +46,14 @@ class _ProductDetailBottomBarState extends State<ProductDetailBottomBar> {
                           onPressed: () {}),
                     ),
                   ),
-                  Container(
-                    child: Icon(
-                      Icons.arrow_forward,
-                      color: Colors.white,
-                    ),
-                  )
+                  widget.isIcon
+                      ? Container(
+                          child: Icon(
+                            Icons.arrow_forward,
+                            color: Colors.white,
+                          ),
+                        )
+                      : Container()
                 ],
               ),
             )),
