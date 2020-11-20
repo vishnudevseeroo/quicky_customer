@@ -1,18 +1,20 @@
 
+
+import 'package:flutter/material.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';
 
-import 'package:flutter/material.dart';
-
-class DashboardPage extends StatefulWidget {
+class NotificationScreen extends StatefulWidget {
   @override
-  _DashboardPageState createState() => _DashboardPageState();
+  _NotificationScreenState createState() => _NotificationScreenState();
 }
 
-class _DashboardPageState extends State<DashboardPage> {
+class _NotificationScreenState extends State<NotificationScreen> {
+
   int _selectedIndex = 0;
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
 
       appBar: AppBar(
@@ -133,3 +135,4 @@ class _DashboardPageState extends State<DashboardPage> {
 
 
 }
+
