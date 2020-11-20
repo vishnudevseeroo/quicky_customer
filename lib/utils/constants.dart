@@ -81,3 +81,5 @@ class SharedPrefs {
     shared.setBool('loggedIn', status);
   }
 }
+bool isAddProduct = true;
+

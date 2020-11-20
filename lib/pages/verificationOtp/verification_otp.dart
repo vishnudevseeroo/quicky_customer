@@ -89,7 +89,9 @@ class OtpState extends State<OtpScreen> {
               ),
               commonRoungButtonGreen(buildTranslate(context, 'verify_code'),
                   () {
-                // button click here
+
+// button click here
+
                 if (_isButtonEnable) {
                   setState(() {
                     _isShowProgressIndicator = true;
@@ -97,6 +99,11 @@ class OtpState extends State<OtpScreen> {
                   validateOtp();
                 }
               }, 290),
+
+
+
+
+
 
               // FlatButton(
               //   onPressed: () {

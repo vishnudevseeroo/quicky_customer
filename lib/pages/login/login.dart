@@ -96,7 +96,7 @@ class LoginState extends State<LoginScreen> {
             ],
           ),
           SizedBox(
-            height: 40,
+            height: 30,
           ),
           commonRoungButtonGreen(buildTranslate(context, 'login'), () {
             // button action here
