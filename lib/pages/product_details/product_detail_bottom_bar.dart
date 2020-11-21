@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quicky_customer/pages/cart/cart_screen.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
+import 'package:quicky_customer/pages/payment_method/payment_method.dart';
 
 class ProductDetailBottomBar extends StatefulWidget {
   final String tittle;
@@ -45,10 +46,17 @@ class _ProductDetailBottomBarState extends State<ProductDetailBottomBar> {
                                 fontWeight: FontWeight.bold),
                           ),
                           onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => CartPage()));
+                            if (widget.isIcon == false) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => PaymentMethod()));
+                            } else {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => CartPage()));
+                            }
                           }),
                     ),
                   ),
