@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/product_details/related_product_list_cell.dart';
 
 class RelatedProductsList extends StatelessWidget {
@@ -12,8 +13,8 @@ class RelatedProductsList extends StatelessWidget {
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 16),
-          child: Text(
-            'Related Products',
+          child: Text( buildTranslate(context,
+            'related products'),
             style: Theme.of(context).textTheme.headline6,
           ),
         ),

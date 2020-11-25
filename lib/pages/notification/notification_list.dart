@@ -1,3 +1,4 @@
+import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';
 
@@ -31,8 +32,8 @@ class _NotificationListState extends State<NotificationList> {
           ),
         ),
         centerTitle: true,
-        title: Text(
-          "Notification",
+        title: Text(buildTranslate(context,
+          "notification"),
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,

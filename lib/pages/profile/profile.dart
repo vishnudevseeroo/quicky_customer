@@ -6,6 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/select_city/select_city.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/CommonWidgets.dart';
@@ -36,6 +37,31 @@ class ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        iconTheme: IconThemeData(color: Colors.black),
+        centerTitle: true,
+        leading: Transform.scale(
+          scale: 0.6,
+          child: FlatButton(
+            shape: CircleBorder(),
+            color: primaryColor,
+            onPressed: () {
+              Navigator.of(context).pop();
+            },
+            child: Icon(
+              Icons.arrow_back_ios_outlined,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        title: Text( buildTranslate(context,
+            'create_profile'),
+          style: TextStyle(color: Colors.black),
+        ),
+      ),
       body: contentLayout(),
     );
   }
@@ -52,10 +78,11 @@ class ProfileScreenState extends State<ProfileScreen> {
   Widget buildFirstName() {
     return TextFormField(
       controller: _nameController,
-      decoration: InputDecoration(labelText: 'Name'),
+      decoration: InputDecoration(labelText:
+        buildTranslate(context, 'name'),),
       validator: (String value) {
         if (value.isEmpty) {
-          return 'Please enter profile name';
+          return buildTranslate(context,'please enter profile name');
         }
         return null;
       },
@@ -68,10 +95,11 @@ class ProfileScreenState extends State<ProfileScreen> {
   Widget buildLastName() {
     return TextFormField(
       controller: _emailController,
-      decoration: InputDecoration(labelText: 'Email Id'),
+      decoration: InputDecoration(
+          labelText:  buildTranslate(context,'email')),
       validator: (String value) {
         if (value.isEmpty) {
-          return 'This field is Required';
+          return buildTranslate(context,'this field is required');
         }
         return null;
       },
@@ -153,13 +181,13 @@ class ProfileScreenState extends State<ProfileScreen> {
       //     borderRadius: BorderRadius.only(
       //         bottomLeft: Radius.circular(30),
       //         bottomRight: Radius.circular(30))),
-      width: double.infinity,
+       width: double.infinity,
       child: Column(
         children: [
-          commonToolbar(context, 'createprofile', false),
-          SizedBox(
-            height: 15,
-          ),
+          // commonToolbar(context, 'create_profile', false),
+          // SizedBox(
+          //   height: 15,
+          // ),
           GestureDetector(
             onTap: () {
               openImagePicker();
@@ -219,10 +247,9 @@ class ProfileScreenState extends State<ProfileScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Submit',
-              style: TextStyle(color: Colors.white, fontSize: normalSize),
-            ),
+            Text(buildTranslate(context,'submit'),
+             style: TextStyle(color: Colors.white, fontSize: normalSize),
+             ),
             Icon(
               Icons.chevron_right_rounded,
               color: Colors.white,

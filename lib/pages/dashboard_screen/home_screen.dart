@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/navigation_drawer/NavigationDrawerScreen.dart';
 import 'package:quicky_customer/pages/restuarant_details/restaurantlist.dart';
 
@@ -126,8 +127,8 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            'Featured',
+          Text(buildTranslate(context,
+            'featured'),
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),
           ),
@@ -263,7 +264,7 @@ class _HomePageState extends State<HomePage> {
   }
 
   final branches = [
-    'Restaurent',
+    'Restaurant',
     'Meat',
     'Fruits',
     'Vegitables',
@@ -276,8 +277,8 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(
-            'Categories',
+          Text(buildTranslate(context,
+            'categories'),
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),
           ),

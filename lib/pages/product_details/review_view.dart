@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quicky_customer/pages/localization/app_localizations.dart';
 
 class ReviewView extends StatelessWidget {
   const ReviewView({
@@ -15,7 +16,7 @@ class ReviewView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
             Text(
-              'Reviews',
+              buildTranslate(context,'reviews'),
               style: TextStyle(fontWeight: FontWeight.bold, color: Colors.blue),
             ),
             IconButton(

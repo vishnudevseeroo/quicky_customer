@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:quicky_customer/pages/Address_screen/addresslist.dart';
 import 'package:quicky_customer/pages/cart/cart_other_details.dart';
 import 'package:quicky_customer/pages/cart/quantity_selector.dart';
+import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/my_address/my_address.dart';
 import 'package:quicky_customer/pages/product_details/product_details.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
@@ -53,8 +55,8 @@ class _CartPageState extends State<CartPage> {
             ),
           ),
         ),
-        title: Text(
-          'Cart',
+        title: Text( buildTranslate(context,
+          'cart'),
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -176,8 +178,8 @@ class _CartPageState extends State<CartPage> {
                         SizedBox(
                           width: 4,
                         ),
-                        Text(
-                          'Buy More',
+                        Text(buildTranslate(context,
+                          'buy more'),
                           style: TextStyle(
                               color: Colors.black,
                               fontSize: 16,
@@ -200,8 +202,8 @@ class _CartPageState extends State<CartPage> {
                         color: Colors.grey,
                         child: Row(
                           children: <Widget>[
-                            Text(
-                              'Checkout',
+                            Text(buildTranslate(context,
+                              'checkout'),
                               style: TextStyle(
                                   color: Colors.black,
                                   fontWeight: FontWeight.bold,
@@ -276,8 +278,8 @@ class _CartPageState extends State<CartPage> {
                     SizedBox(
                       height: 16,
                     ),
-                    Text(
-                      "Value",
+                    Text( buildTranslate(context,
+                       "value"),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
                       style: TextStyle(fontWeight: FontWeight.bold),
@@ -290,6 +292,7 @@ class _CartPageState extends State<CartPage> {
                       style: TextStyle(color: Colors.black, fontSize: 15),
                     ),
                     QuantitySelector(),
+
                     Text(
                       '₹ 287',
                       style: TextStyle(color: Colors.green, fontSize: 17),

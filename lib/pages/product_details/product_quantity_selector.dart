@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quicky_customer/pages/localization/app_localizations.dart';
 
 class ProductQuantitySelector extends StatefulWidget {
   // final ProductInfo product;
@@ -24,9 +25,10 @@ class _ProductQuantitySelectorState extends State<ProductQuantitySelector> {
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
             Text(
-              'Quantity',
-              style: TextStyle(fontWeight: FontWeight.bold),
+              buildTranslate(context, 'quantity'),
+              style: TextStyle(fontSize: 12,fontWeight: FontWeight.bold),
             ),
+
             IconButton(
               icon: Icon(
                 Icons.remove,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quicky_customer/pages/localization/app_localizations.dart';
 
 class CartPriceDetails extends StatelessWidget {
   // final MyCartResponse cartDetails;
@@ -21,7 +22,7 @@ class CartPriceDetails extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Text('Item Total 4 Item/s):'),
+          Text(buildTranslate(context,'subtotal')),
           Text(
             '₹ 34',
             style: priceTextStyle,
@@ -48,7 +49,7 @@ class CartPriceDetails extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Text('Coupon Discount:'),
+          Text(buildTranslate(context,'coupon discount')),
           Text(
             '₹ 67',
             style: priceTextStyle,
@@ -63,7 +64,7 @@ class CartPriceDetails extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text('Delivery Charge:'),
+          Text(buildTranslate(context,'delivery charge')),
           Expanded(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
@@ -73,10 +74,6 @@ class CartPriceDetails extends StatelessWidget {
                   '₹ 56',
                   style: priceTextStyle,
                 ),
-                SizedBox(
-                  height: 8,
-                ),
-                buildDeliveryDetail()
               ],
             ),
           )
@@ -88,8 +85,8 @@ class CartPriceDetails extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
-          Text(
-            'GRAND TOTAL',
+          Text( buildTranslate(context,
+            'grand total'),
             style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
           ),
           Container(
@@ -110,13 +107,13 @@ class CartPriceDetails extends StatelessWidget {
     return widgets;
   }
 
-  Widget buildDeliveryDetail() {
-    // if (cartDetails.apply_delivery_charge) {
-    return Text(
-      '* 909',
-      style: TextStyle(fontSize: 11),
-    );
-    // }
-    // return Container();
-  }
+  // Widget buildDeliveryDetail() {
+  //   // if (cartDetails.apply_delivery_charge) {
+  //   return Text(
+  //     '* 909',
+  //     style: TextStyle(fontSize: 11),
+  //   );
+  //   // }
+  //   // return Container();
+  // }
 }

@@ -39,8 +39,8 @@ class _AddressPageState extends State<AddressPage> {
           ),
         ),
         centerTitle: true,
-        title: Text(
-          "My Address",
+        title: Text(buildTranslate(context,
+          "my address"),
           style: TextStyle(color: Colors.black),
         ),
         backgroundColor: Colors.white,
@@ -130,8 +130,8 @@ class _AddressPageState extends State<AddressPage> {
                                     onPressed: () {},
                                     minWidth: 60,
                                     color: primaryColor,
-                                    child: Text(
-                                      'EDIT',
+                                    child: Text( buildTranslate(context,
+                                      'edit'),
                                       style: TextStyle(
                                           color: Colors.white, fontSize: 16),
                                     ),
@@ -155,43 +155,44 @@ class _AddressPageState extends State<AddressPage> {
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-          child: Container(
-            height: 70,
-            width: 500,
-            decoration: BoxDecoration(
-              color: primaryColor,
-              borderRadius: BorderRadius.circular(10.0),
-            ),
-            child: Row(
-              children: [
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  Icons.location_on,
-                  color: Colors.white,
-                ),
-                SizedBox(
-                  width: 10,
-                ),
-                Text("Delivered to Current Location",
-                    style: TextStyle(color: Colors.white, fontSize: 18)),
-                SizedBox(
-                  width: 10,
-                ),
-                Icon(
-                  Icons.arrow_forward_ios_sharp,
-                  color: Colors.white,
-                )
-              ],
+          child: Expanded(
+            child: Container(
+              height: 70,
+              width: 500,
+              decoration: BoxDecoration(
+                color: primaryColor,
+                borderRadius: BorderRadius.circular(10.0),
+              ),
+              child: Row(
+                children: [
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Icon(
+                    Icons.location_on,
+                    color: Colors.white,
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(buildTranslate(context,"delivered to current location"),
+                      style: TextStyle(color: Colors.white, fontSize: 18),maxLines: 3,),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Icon(
+                    Icons.arrow_forward_ios_sharp,
+                    color: Colors.white,
+                  )
+                ],
+              ),
             ),
           ),
         ),
         SizedBox(
           height: 30,
         ),
-        Text(
-          "Or",
+        Text( buildTranslate(context,"or"),
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 18),
         ),
         SizedBox(

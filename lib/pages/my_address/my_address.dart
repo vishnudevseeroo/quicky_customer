@@ -147,8 +147,8 @@ class MyAddressState extends State<MyAddress> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 0.0),
                                 child: Container(
-                                  child: Text(
-                                    "EDIT",
+                                  child: Text(buildTranslate(context,
+                                    "edit"),
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
                                     style: TextStyle(
@@ -164,8 +164,8 @@ class MyAddressState extends State<MyAddress> {
                               Padding(
                                 padding: const EdgeInsets.only(left: 0.0),
                                 child: Container(
-                                  child: Text(
-                                    "DELETE",
+                                  child: Text(buildTranslate(context,
+                                    "delete"),
                                     overflow: TextOverflow.ellipsis,
                                     maxLines: 1,
                                     style: TextStyle(
