@@ -5,6 +5,7 @@ import 'dart:ui';
 import 'package:flutter/cupertino.dart';
 
 import 'package:image_picker/image_picker.dart';
+import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/select_city/select_city.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/CommonWidgets.dart';
@@ -53,10 +54,10 @@ class _EditProfileState extends State<EditProfile> {
       controller: _nameController,
       //decoration: InputDecoration(labelText: 'Name'),
       decoration:
-          InputDecoration(prefixIcon: Icon(Icons.person), labelText: 'Name'),
+          InputDecoration(prefixIcon: Icon(Icons.person), labelText:buildTranslate(context, 'name')),
       validator: (String value) {
         if (value.isEmpty) {
-          return 'Please enter profile name';
+          return 'please enter profile name';
         }
         return null;
       },
@@ -70,10 +71,10 @@ class _EditProfileState extends State<EditProfile> {
     return TextFormField(
       controller: _emailController,
       decoration:
-          InputDecoration(prefixIcon: Icon(Icons.email), labelText: 'Email'),
+          InputDecoration(prefixIcon: Icon(Icons.email), labelText: buildTranslate(context,'email')),
       validator: (String value) {
         if (value.isEmpty) {
-          return 'This field is Required';
+          return 'this field is required';
         }
         return null;
       },
@@ -87,7 +88,7 @@ class _EditProfileState extends State<EditProfile> {
     return TextFormField(
       controller: _emailController,
       decoration: InputDecoration(
-          prefixIcon: Icon(Icons.phone), labelText: 'Phone number'),
+          prefixIcon: Icon(Icons.phone), labelText: buildTranslate(context,'phone_number')),
       validator: (String value) {
         if (value.isEmpty) {
           return 'This field is Required';
@@ -177,7 +178,7 @@ class _EditProfileState extends State<EditProfile> {
       width: double.infinity,
       child: Column(
         children: [
-          commonToolbar(context, 'createprofile', false),
+          commonToolbar(context, 'create_profile', false),
           SizedBox(
             height: 15,
           ),
@@ -240,8 +241,8 @@ class _EditProfileState extends State<EditProfile> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(
-              'Submit',
+            Text(buildTranslate(context,
+              'submit'),
               style: TextStyle(color: Colors.white, fontSize: normalSize),
             ),
             Icon(

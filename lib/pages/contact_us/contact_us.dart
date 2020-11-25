@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/CommonWidgets.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';
@@ -143,8 +144,8 @@ class ContactUsState extends State<ContactUsScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Our Location',
+              Text(buildTranslate(context,
+                'our_location'),
                 style: TextStyle(
                     color: Colors.black,
                     fontSize: heading5,
@@ -163,7 +164,7 @@ class ContactUsState extends State<ContactUsScreen> {
                     width: 5,
                   ),
                   Text(
-                    'Ouicky',
+                    'Quicky',
                     style: TextStyle(
                         color: Colors.black,
                         fontWeight: FontWeight.bold,
@@ -207,8 +208,8 @@ class ContactUsState extends State<ContactUsScreen> {
               color: Colors.white,
             ),
             SizedBox(width: 10),
-            Text(
-              'E-Mail',
+            Text(buildTranslate(context,
+              'email'),
               style: TextStyle(color: Colors.white, fontSize: normalSize),
             ),
           ],

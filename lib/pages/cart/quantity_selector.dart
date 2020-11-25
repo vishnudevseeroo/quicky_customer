@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quicky_customer/pages/localization/app_localizations.dart';
 
 class QuantitySelector extends StatefulWidget {
   // Function(CartProductDetail, QuantityTypeChanged) callback;
@@ -22,7 +23,8 @@ class _QuantitySelectorState extends State<QuantitySelector> {
     print('quant slector rebuilding');
     return Row(
       children: <Widget>[
-        Text('Quantity: '),
+        Text('quantity ',style: TextStyle(fontSize: 12),),
+
         IconButton(
           icon: Icon(
             Icons.remove,
