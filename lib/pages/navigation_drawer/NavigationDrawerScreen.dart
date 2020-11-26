@@ -170,7 +170,8 @@ class NavigationDrawer extends StatelessWidget {
                   buildTranslate(context, drawerList.elementAt(index)),
                   // "vvvvv",
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(color: Colors.white, fontSize: drawer),
+                  style: TextStyle(color: Colors.white, fontSize: 12),
+                  maxLines: 3,
                 )
               ],
             ),

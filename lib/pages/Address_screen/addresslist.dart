@@ -155,37 +155,38 @@ class _AddressPageState extends State<AddressPage> {
       children: [
         Padding(
           padding: const EdgeInsets.fromLTRB(20, 10, 20, 0),
-          child: Expanded(
-            child: Container(
-              height: 70,
-              width: 500,
-              decoration: BoxDecoration(
-                color: primaryColor,
-                borderRadius: BorderRadius.circular(10.0),
-              ),
-              child: Row(
-                children: [
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Icon(
-                    Icons.location_on,
-                    color: Colors.white,
-                  ),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Text(buildTranslate(context,"delivered to current location"),
-                      style: TextStyle(color: Colors.white, fontSize: 18),maxLines: 3,),
-                  SizedBox(
-                    width: 10,
-                  ),
-                  Icon(
-                    Icons.arrow_forward_ios_sharp,
-                    color: Colors.white,
-                  )
-                ],
-              ),
+          child: Container(
+            height: 70,
+            width: 500,
+            decoration: BoxDecoration(
+              color: primaryColor,
+              borderRadius: BorderRadius.circular(10.0),
+            ),
+            child: Row(
+              children: [
+                SizedBox(
+                  width: 10,
+                ),
+                Icon(
+                  Icons.location_on,
+                  color: Colors.white,
+                ),
+                SizedBox(
+                  width: 30,
+                ),
+            Expanded(
+                  child: Text(buildTranslate(context,"delivered to current location"),
+                      style: TextStyle(color: Colors.white, fontSize: 18),maxLines: 2,
+                  overflow: TextOverflow.ellipsis,),
+                ),
+                // SizedBox(
+                //   width: 5,
+                // ),
+                Icon(
+                  Icons.arrow_forward_ios_sharp,
+                  color: Colors.white,
+                )
+              ],
             ),
           ),
         ),
