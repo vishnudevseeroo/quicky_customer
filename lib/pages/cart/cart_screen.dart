@@ -282,7 +282,7 @@ class _CartPageState extends State<CartPage> {
                        "value"),
                       overflow: TextOverflow.ellipsis,
                       maxLines: 1,
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(fontWeight: FontWeight.bold,),
                     ),
                     SizedBox(
                       height: 8,
@@ -291,13 +291,16 @@ class _CartPageState extends State<CartPage> {
                       '₹ 287',
                       style: TextStyle(color: Colors.black, fontSize: 15),
                     ),
-                    QuantitySelector(),
+                      QuantitySelector(),
 
                     Text(
                       '₹ 287',
                       style: TextStyle(color: Colors.green, fontSize: 17),
                     ),
                   ],
+                ),
+                SizedBox(
+                  width:40,
                 ),
                 Flexible(
                   child: IconButton(

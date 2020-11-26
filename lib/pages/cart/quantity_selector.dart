@@ -20,26 +20,17 @@ class _QuantitySelectorState extends State<QuantitySelector> {
 
   @override
   Widget build(BuildContext context) {
-    print('quant slector rebuilding');
+    print('quant selector rebuilding');
     return Row(
       children: <Widget>[
-        Text('quantity ',style: TextStyle(fontSize: 12),),
-
+        Text(buildTranslate(context, 'Quantity'),style: TextStyle(fontSize: 12),
+          overflow: TextOverflow.ellipsis,),
         IconButton(
           icon: Icon(
             Icons.remove,
             color: Theme.of(context).primaryColorDark,
           ),
           onPressed: minus,
-        ),
-        Container(
-          width: 20,
-          height: 30,
-          decoration: BoxDecoration(
-              color: Colors.white, borderRadius: BorderRadius.circular(5)),
-          child: Center(
-            child: Text('valuuuu'),
-          ),
         ),
         IconButton(
           icon: Icon(
