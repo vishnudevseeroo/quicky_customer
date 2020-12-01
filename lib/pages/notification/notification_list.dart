@@ -1,3 +1,4 @@
+import 'package:quicky_customer/pages/dashboard_screen/home_screen.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';

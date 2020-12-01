@@ -16,7 +16,6 @@
   "name" : "Name",
   "please enter profile name": "Please enter profile name",
   "this field is required": "This field is Required",
-  "create_profile": "Create Profile",
   "business_category": "Business Category",
   "business_name": "Business Name",
   "select_city": "Select City",
@@ -105,7 +104,6 @@
   "search":"Search",
   "otp":"OTP",
   "create_profile":"Create Profile",
-  "business_account":"Business Account",
   "about_Us" : "About Us",
   "cart":"Cart",
   "profile" : "Profile",
@@ -139,7 +137,10 @@
   "or": "Or",
   "delete": "DELETE",
   "featured": "Featured",
-  "categories": "Categories"
+  "categories": "Categories",
+  "Name": "Name :",
+  "Email": "E-mail :",
+  "Phone_number": "Phone Number :"
 
 
  

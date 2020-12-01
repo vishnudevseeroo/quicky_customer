@@ -1,4 +1,5 @@
 import 'dart:io' show Platform;
+import 'package:flutter/cupertino.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 final int quantitySelectionType = 2; // 1: Textfield 2: Dropdown
@@ -9,58 +10,9 @@ bool validateStructureForPassword(String value) {
   return regExp.hasMatch(value);
 }
 
-// class SharedPreffUtil {
-//   final registerKey = 'register_complete';
-//   final loginKey = 'login';
-//   final isEngSelectedKey = 'is_english_selected';
-//   final mobileKey = 'mobile';
 
-//   static final SharedPreffUtil _instance = SharedPreffUtil._ctor();
+GlobalKey<NavigatorState> initialNavigator = GlobalKey<NavigatorState>();
 
-//   factory SharedPreffUtil() {
-//     return _instance;
-//   }
-
-//   SharedPreffUtil._ctor();
-
-//   SharedPreferences _prefs;
-
-//   init() async {
-//     _prefs = await SharedPreferences.getInstance();
-//   }
-
-//   set setLogin(bool login) {
-//     _prefs.setBool(loginKey, login);
-//   }
-
-//   get isLoggedin {
-//     return _prefs.getBool(loginKey) ?? false;
-//   }
-
-//   set setRegistrationComplete(bool login) {
-//     _prefs.setBool(registerKey, login);
-//   }
-
-//   get isRegister {
-//     return _prefs.getBool(registerKey) ?? false;
-//   }
-
-//   set setLanguageAsEnglish(bool login) {
-//     _prefs.setBool(isEngSelectedKey, login);
-//   }
-
-//   get isEnglishSelected {
-//     return _prefs.getBool(isEngSelectedKey) ?? false;
-//   }
-
-//   set setMobileNumber(String mobile) {
-//     _prefs.setString(mobileKey, mobile);
-//   }
-
-//   get getMobile {
-//     return _prefs.getString(mobileKey);
-//   }
-// }
 
 class SharedPrefs {
   static SharedPreferences shared;
