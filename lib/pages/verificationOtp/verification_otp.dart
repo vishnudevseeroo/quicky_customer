@@ -3,6 +3,7 @@ import 'dart:ui';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:pin_input_text_field/pin_input_text_field.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
@@ -195,6 +196,7 @@ class OtpState extends State<OtpScreen> {
     return SizedBox(
       width: 270,
       child: PinInputTextField(
+        inputFormatter: [FilteringTextInputFormatter.digitsOnly],
         pinLength: 6,
         decoration: BoxLooseDecoration(
             gapSpace: 5,

@@ -109,10 +109,13 @@ class _RestaurantScreenState extends State<RestaurantScreen> {
                   child: Image.asset(productImageList.elementAt(index)),
                 ),
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => ProductScreen()));
+                  initialNavigator.currentState.push(MaterialPageRoute(
+                      builder: (context) => ProductScreen()));
+
+                  // Navigator.push(
+                  //     context,
+                  //     MaterialPageRoute(
+                  //         builder: (context) => ProductScreen()));
                 },
               ),
             ),

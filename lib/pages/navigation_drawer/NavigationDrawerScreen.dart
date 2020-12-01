@@ -13,6 +13,7 @@ import 'package:quicky_customer/pages/profile/profile.dart';
 import 'package:quicky_customer/pages/select_language/select_language.dart';
 import 'package:quicky_customer/utils/CommonWidgets.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';
+import 'package:quicky_customer/utils/constants.dart';
 
 class NavigationDrawer extends StatelessWidget {
   BuildContext _context;
@@ -191,37 +192,32 @@ class NavigationDrawer extends StatelessWidget {
   void openNewScreen(int index, BuildContext context) {
     switch (index) {
       case 0:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => EditProfile()));
+        initialNavigator.currentState.push(MaterialPageRoute(
+            builder: (context) => EditProfile()));
+
         break;
       case 1:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MyOrderScreen()));
+        initialNavigator.currentState.push(MaterialPageRoute(
+            builder: (context) => MyOrderScreen()));
 
         break;
       case 2:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => MyAddress()));
+        initialNavigator.currentState.push(MaterialPageRoute(
+            builder: (context) => MyAddress()));
+
         break;
       case 3:
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => ProfileScreen()));
+        initialNavigator.currentState.push(MaterialPageRoute(
+            builder: (context) => ProfileScreen()));
+
         break;
       case 4:
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => PaymentMethod(
-                    //isFromSplashScreen: false,
-                    )));
+        initialNavigator.currentState.push(MaterialPageRoute(
+            builder: (context) => PaymentMethod()));
         break;
       case 5:
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => SelectLanguageScreen(
-                      isFromSplashScreen: false,
-                    )));
+        initialNavigator.currentState.push(MaterialPageRoute(
+            builder: (context) => SelectLanguageScreen()));
 
         break;
       case 6:
@@ -229,8 +225,8 @@ class NavigationDrawer extends StatelessWidget {
 
         break;
       case 7:
-        Navigator.push(context,
-            MaterialPageRoute(builder: (context) => ContactUsScreen()));
+        initialNavigator.currentState.push(MaterialPageRoute(
+            builder: (context) => ContactUsScreen()));
         break;
       case 8:
         showAlertDialog(

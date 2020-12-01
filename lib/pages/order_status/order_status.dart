@@ -150,8 +150,8 @@ class OrderStatusState extends State<OrderStatus> {
               SizedBox(
                 height: 16,
               ),
-              Text(
-                "Value",
+              Text(buildTranslate(context,
+                "value"),
                 overflow: TextOverflow.ellipsis,
                 maxLines: 1,
                 style: TextStyle(fontWeight: FontWeight.bold),
@@ -188,7 +188,7 @@ class OrderStatusState extends State<OrderStatus> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Name :'),
+                  Text(buildTranslate(context,'Name')),
                   Text(
                     'Vishnu dev t',
                     style: TextStyle(
@@ -204,7 +204,7 @@ class OrderStatusState extends State<OrderStatus> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Email :'),
+                  Text(buildTranslate(context,'Email')),
                   Text(
                     'vishnudevt@gmail.com',
                     style: TextStyle(
@@ -220,7 +220,7 @@ class OrderStatusState extends State<OrderStatus> {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: <Widget>[
-                  Text('Phone Number :'),
+                  Text(buildTranslate(context,'Phone_number')),
                   Text(
                     '9809009890',
                     style: TextStyle(

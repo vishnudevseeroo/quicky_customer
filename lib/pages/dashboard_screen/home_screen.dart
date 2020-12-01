@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/navigation_drawer/NavigationDrawerScreen.dart';
 import 'package:quicky_customer/pages/restuarant_details/restaurantlist.dart';
+import 'package:quicky_customer/utils/constants.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -161,10 +162,12 @@ class _HomePageState extends State<HomePage> {
                       children: <Widget>[
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (context) => RestaurantScreen()));
+                            initialNavigator.currentState.push(MaterialPageRoute(
+                                builder: (context) =>RestaurantScreen ()));
+                            // Navigator.push(
+                            //     context,
+                            //     MaterialPageRoute(
+                            //         builder: (context) => RestaurantScreen()));
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.height / 4,
