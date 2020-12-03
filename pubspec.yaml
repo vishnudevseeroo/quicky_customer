@@ -41,11 +41,14 @@ dependencies:
   carousel_slider: ^2.1.0
   flutter_rating_bar: ^3.2.0
   timeline_tile: ^1.0.0
+  flutter_html: ^1.0.2
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  timeline_tile: ^1.0.0
+  build_runner: ^1.10.3
+  json_serializable: ^3.5.0
+  
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
