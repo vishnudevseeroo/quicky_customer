@@ -57,8 +57,8 @@ class ProfileScreenState extends State<ProfileScreen> {
             ),
           ),
         ),
-        title: Text( buildTranslate(context,
-            'create_profile'),
+        title: Text(
+          buildTranslate(context, 'create_profile'),
           style: TextStyle(color: Colors.black),
         ),
       ),
@@ -70,19 +70,17 @@ class ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     // replace hardacoded text with profile api call
     super.initState();
-
-    _nameController.text = 'Name';
-    _emailController.text = 'organic@gmail.com';
   }
 
   Widget buildFirstName() {
     return TextFormField(
       controller: _nameController,
-      decoration: InputDecoration(labelText:
-        buildTranslate(context, 'name'),),
+      decoration: InputDecoration(
+        labelText: buildTranslate(context, 'name'),
+      ),
       validator: (String value) {
         if (value.isEmpty) {
-          return buildTranslate(context,'please enter profile name');
+          return buildTranslate(context, 'please enter profile name');
         }
         return null;
       },
@@ -95,11 +93,15 @@ class ProfileScreenState extends State<ProfileScreen> {
   Widget buildLastName() {
     return TextFormField(
       controller: _emailController,
-      decoration: InputDecoration(
-          labelText:  buildTranslate(context,'email')),
+      decoration: InputDecoration(labelText: buildTranslate(context, 'email')),
       validator: (String value) {
         if (value.isEmpty) {
-          return buildTranslate(context,'this field is required');
+          return buildTranslate(context, 'this field is required');
+        }
+        if (!RegExp(
+                r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
+            .hasMatch(value)) {
+          return 'Please enter a valid email Address';
         }
         return null;
       },
@@ -114,42 +116,10 @@ class ProfileScreenState extends State<ProfileScreen> {
       child: Column(
         children: [
           getHeaderLayout(),
-          Padding(
-            padding: EdgeInsets.only(left: 25, right: 25),
-          ),
-          // Container(
-          //   margin: EdgeInsets.only(left: 30, top: 20),
-          //   child: Row(
-          //     mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //     children: [
-          //       Text(
-          //         '',
-          //         style: TextStyle(
-          //             color: Colors.black,
-          //             fontWeight: FontWeight.bold,
-          //             fontSize: heading4),
-          //       ),
-          //       FlatButton(
-          //           height: 35,
-          //           onPressed: () {
-          //             setState(() {
-          //               if (_isEdit) {
-          //                 _isEdit = false;
-          //               } else {
-          //                 _isEdit = true;
-          //               }
-          //             });
-          //           },
-          //           shape: new CircleBorder(),
-          //           color: primaryColor,
-          //           child: Icon(
-          //             Icons.edit,
-          //             color: Colors.white,
-          //             size: 20,
-          //           ))
-          //     ],
-          //   ),
+          // Padding(
+          //   padding: EdgeInsets.only(left: 25, right: 25),
           // ),
+
           Padding(
             padding: EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
             child: Form(
@@ -181,7 +151,7 @@ class ProfileScreenState extends State<ProfileScreen> {
       //     borderRadius: BorderRadius.only(
       //         bottomLeft: Radius.circular(30),
       //         bottomRight: Radius.circular(30))),
-       width: double.infinity,
+      width: double.infinity,
       child: Column(
         children: [
           // commonToolbar(context, 'create_profile', false),
@@ -247,9 +217,10 @@ class ProfileScreenState extends State<ProfileScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(buildTranslate(context,'submit'),
-             style: TextStyle(color: Colors.white, fontSize: normalSize),
-             ),
+            Text(
+              buildTranslate(context, 'submit'),
+              style: TextStyle(color: Colors.white, fontSize: normalSize),
+            ),
             Icon(
               Icons.chevron_right_rounded,
               color: Colors.white,

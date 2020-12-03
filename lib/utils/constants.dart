@@ -10,9 +10,7 @@ bool validateStructureForPassword(String value) {
   return regExp.hasMatch(value);
 }
 
-
 GlobalKey<NavigatorState> initialNavigator = GlobalKey<NavigatorState>();
-
 
 class SharedPrefs {
   static SharedPreferences shared;
@@ -32,6 +30,15 @@ class SharedPrefs {
   static void setisLoggedIn(bool status) {
     shared.setBool('loggedIn', status);
   }
-}
-bool isAddProduct = true;
 
+  //tocken
+  static void setTocken(String tocken) {
+    shared.setString('tocken', tocken);
+  }
+
+  static String getTocken() {
+    return shared.getString('tocken');
+  }
+}
+
+bool isAddProduct = true;

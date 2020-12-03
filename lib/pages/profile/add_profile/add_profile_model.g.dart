@@ -1,22 +1,24 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'login_model.dart';
+part of 'add_profile_model.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-LoginResponse _$LoginResponseFromJson(Map<String, dynamic> json) {
-  return LoginResponse(
+ProfileModel _$ProfileModelFromJson(Map<String, dynamic> json) {
+  return ProfileModel(
     status: json['status'] as String,
+    name: json['name'] as String,
+    email: json['email'] as String,
     message: json['message'] as String,
-    otp: json['OTP'] as String,
   );
 }
 
-Map<String, dynamic> _$LoginResponseToJson(LoginResponse instance) =>
+Map<String, dynamic> _$ProfileModelToJson(ProfileModel instance) =>
     <String, dynamic>{
       'status': instance.status,
+      'name': instance.name,
+      'email': instance.email,
       'message': instance.message,
-      'OTP': instance.otp,
     };

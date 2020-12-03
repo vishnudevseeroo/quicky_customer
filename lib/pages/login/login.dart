@@ -3,11 +3,14 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:quicky_customer/pages/Api_service/api_service.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/verificationOtp/verification_otp.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/CommonWidgets.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';
+import 'package:quicky_customer/utils/snackbar.dart';
 
 class LoginScreen extends StatefulWidget {
   static const routeName = '/login';
@@ -18,25 +21,29 @@ class LoginScreen extends StatefulWidget {
 class LoginState extends State<LoginScreen> {
   final _controller = TextEditingController();
 
-  final _emailController = TextEditingController();
   bool isShowErrorMsg = false;
   String errorMsg = "";
   DateTime currentBackPressTime;
-  bool _isShowProgressBar = false;
-  bool _isEnableLoginButton = true;
 
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+  bool isLoading = false;
   @override
   Widget build(BuildContext context) {
     return WillPopScope(
       onWillPop: onBackPressed,
       child: Scaffold(
+          key: scaffoldKey,
           backgroundColor: Colors.white,
           body: new GestureDetector(
             onTap: () {
               FocusScope.of(context).requestFocus(new FocusNode());
             },
-            child: SafeArea(
-              child: SingleChildScrollView(child: Center(child: loginLayout())),
+            child: ModalProgressHUD(
+              inAsyncCall: isLoading,
+              child: SafeArea(
+                child:
+                    SingleChildScrollView(child: Center(child: loginLayout())),
+              ),
             ),
           )),
     );
@@ -46,8 +53,6 @@ class LoginState extends State<LoginScreen> {
     return Container(
       color: Colors.white,
       margin: EdgeInsets.only(left: 30, right: 30),
-      // width: double.infinity,
-      // height: double.infinity,
       child: Column(
         children: [
           SizedBox(
@@ -100,12 +105,11 @@ class LoginState extends State<LoginScreen> {
           ),
           commonRoungButtonGreen(buildTranslate(context, 'login'), () {
             // button action here
-            _isEnableLoginButton ? validateFiled() : null;
+            validateFiled();
           }, double.infinity),
           SizedBox(
             height: 50,
           ),
-          _isShowProgressBar ? CircularProgressIndicator() : SizedBox()
         ],
       ),
     );
@@ -129,43 +133,25 @@ class LoginState extends State<LoginScreen> {
 
   loginApiCall() {
     print('login or register api call working........');
-
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => OtpScreen()));
-
-    //   ApiServices()
-    //       .loginOrRegister(
-    //           mobile: _controller.text,
-    //           context: context,
-    //           onError: () {
-    //             desableProgressBar();
-    //           })
-    //       .then((response) => {
-    //             if (response.status == "success")
-    //               {
-    //                 desableProgressBar(),
-    //                 print("Login success " + response.oTP),
-    //                 Fluttertoast.showToast(
-    //                     msg: 'OTP:' + response.oTP,
-    //                     toastLength: Toast.LENGTH_LONG),
-    //                 Navigator.push(context,
-    //                     MaterialPageRoute(builder: (context) => OtpScreen()))
-    //               }
-    //             else
-    //               {
-    //                 desableProgressBar(),
-    //                 print("Failed to login.."),
-    //                 Fluttertoast.showToast(
-    //                     msg: getTranslated(context, 'error_msg'))
-    //               }
-    //           });
-    // }
-
-    // void desableProgressBar() {
-    //   setState(() {
-    //     _isShowProgressBar = false;
-    //     _isEnableLoginButton = true;
-    //   });
+    verifyPasswordFor(
+      phone: _controller.text,
+    ).then((response) {
+      setState(() {
+        isLoading = false;
+      });
+      if (response.status == "success") {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (context) => OtpScreen(
+                      phone: _controller.text,
+                      message: response.message,
+                      otp: response.otp,
+                    )));
+      } else {
+        showSnackBar(scaffoldKey, response.message ?? 'Something went wrong');
+      }
+    });
   }
 
   void validateFiled() {
@@ -179,8 +165,8 @@ class LoginState extends State<LoginScreen> {
       } else {
         isShowErrorMsg = false;
 
-        _isShowProgressBar = true;
-        _isEnableLoginButton = false;
+        isLoading = true;
+        // _isEnableLoginButton = false;
         loginApiCall();
       }
     });

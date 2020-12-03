@@ -5,6 +5,8 @@ part 'login_model.g.dart';
 class LoginResponse {
   String status;
   String message;
+
+  @JsonKey(name: 'OTP')
   String otp;
 
   LoginResponse({this.status, this.message, this.otp});
