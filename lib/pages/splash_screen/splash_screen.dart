@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:package_info/package_info.dart';
 import 'package:quicky_customer/main.dart';
+import 'package:quicky_customer/pages/dashboard_screen/dashboard_view.dart';
 import 'package:quicky_customer/pages/select_language/select_language.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';
 import 'package:quicky_customer/utils/constants.dart';
@@ -24,30 +25,20 @@ class SplashScreenState extends State<SpalshScreen> {
     Timer(
         Duration(seconds: 3),
         () => {
-              // setLanguage(),
-              // if (SharedPreffUtil().isLoggedin && SharedPreffUtil().isRegister)
-              //   {
-              //     Navigator.pushReplacement(
-              //         context,
-              //         MaterialPageRoute(
-              //             builder: (BuildContext context) => DashboardScreen()))
-              //   }
-              // else if (!SharedPreffUtil().isRegister &&
-              //     !SharedPreffUtil().isLoggedin)
-              //   {
-              Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => SelectLanguageScreen(
-                            isFromSplashScreen: true,
-                          )))
-              //   }
-              // else if (SharedPreffUtil().isRegister &&
-              //     !SharedPreffUtil().isLoggedin)
-              //   {
-              //     Navigator.pushReplacement(context,
-              //         MaterialPageRoute(builder: (context) => LoginScreen()))
-              //}
+              if (SharedPrefs.isLoggedIn() == true)
+                {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (context) => DashboardPage()))
+                }
+              else
+                {
+                  Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SelectLanguageScreen(
+                                isFromSplashScreen: true,
+                              )))
+                }
             });
   }
 

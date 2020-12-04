@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:quicky_customer/pages/dashboard_screen/dashboard_screen.dart';
+import 'package:quicky_customer/pages/dashboard_screen/dashboard_view.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/localization/language_constants.dart';
 import 'package:quicky_customer/pages/login/login.dart';
@@ -12,8 +12,6 @@ import 'package:quicky_customer/pages/success/success_screen.dart';
 import 'package:quicky_customer/pages/verificationOtp/verification_otp.dart';
 import 'package:quicky_customer/utils/constants.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
-
 
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -89,7 +87,7 @@ class _MyHomePageState extends State<MyHomePage> {
         SelectLanguageScreen.routeName: (context) => SelectLanguageScreen(),
         ProfileScreen.routeName: (context) => ProfileScreen(),
         SelectCity.routeName: (context) => SelectCity(),
-        DashboardScreen.routeName: (context) => DashboardScreen(),
+        DashboardPage.routeName: (context) => DashboardPage(),
         SuccessScreen.routeName: (context) => SuccessScreen(),
         LoginScreen.routeName: (context) => LoginScreen(),
       },
