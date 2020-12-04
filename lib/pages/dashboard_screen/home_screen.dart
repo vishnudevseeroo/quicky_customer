@@ -30,11 +30,42 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    //checkIfNewVersionAvailable();
-    getCategoryList();
+
+    getHomescreenData();
   }
 
-  Future<void> getCategoryList() async {
+  // Future<void> getCategoryList() async {
+  //   bool _isNetWorkavailable = await getNetworkAvailability();
+  //   print('is_network_available: ' + _isNetWorkavailable.toString());
+
+  //   if (_isNetWorkavailable) {
+  //     setState(() {
+  //       isLoading = true;
+  //       categoryList();
+  //     });
+  //   } else {
+  //     showSnackBar(_scaffoldKey, buildTranslate(context, 'no_network'));
+  //   }
+  // }
+
+  // categoryList() {
+  //   print('categoryListApi api call working........');
+  //   categoryListApi(
+  //     userId: '${SharedPrefs.getUserId()}',
+  //   ).then((response) {
+  //     setState(() {
+  //       isLoading = false;
+
+  //       if (response.isNotEmpty) {
+  //         catList = response;
+  //       } else {
+  //         showSnackBar(_scaffoldKey, 'Something went wrong');
+  //       }
+  //     });
+  //   });
+  // }
+
+  Future<void> getHomescreenData() async {
     bool _isNetWorkavailable = await getNetworkAvailability();
     print('is_network_available: ' + _isNetWorkavailable.toString());
 
@@ -50,14 +81,14 @@ class _HomePageState extends State<HomePage> {
 
   categoryList() {
     print('categoryListApi api call working........');
-    categoryListApi(
+    getHomeScreen(
       userId: '${SharedPrefs.getUserId()}',
     ).then((response) {
       setState(() {
         isLoading = false;
 
-        if (response.isNotEmpty) {
-          catList = response;
+        if (response.businessCategories != null) {
+          catList = response.businessCategories;
         } else {
           showSnackBar(_scaffoldKey, 'Something went wrong');
         }
@@ -387,7 +418,7 @@ class _HomePageState extends State<HomePage> {
                 ? Container()
                 : catList?.length == 0
                     ? Center(
-                        child: Text('No orders found'),
+                        child: Text('No Data Found'),
                       )
                     : buildBody(context),
           ),
