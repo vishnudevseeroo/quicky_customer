@@ -1,10 +1,18 @@
+
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:quicky_customer/pages/Api_service/api_service.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/navigation_drawer/NavigationDrawerScreen.dart';
 import 'package:quicky_customer/pages/restuarant_details/restaurantlist.dart';
+import 'package:quicky_customer/utils/CommonWidgets.dart';
 import 'package:quicky_customer/utils/constants.dart';
+import 'package:quicky_customer/utils/snackbar.dart';
+
+import 'model/category_list.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -18,80 +26,85 @@ class _HomePageState extends State<HomePage> {
   Color colorCode = Colors.lightBlue;
   Random random = new Random();
 
+  List<CategoryList> catList = List<CategoryList>();
+
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    //checkIfNewVersionAvailable();
+
+    getHomescreenData();
+  }
+
+  // Future<void> getCategoryList() async {
+  //   bool _isNetWorkavailable = await getNetworkAvailability();
+  //   print('is_network_available: ' + _isNetWorkavailable.toString());
+
+  //   if (_isNetWorkavailable) {
+  //     setState(() {
+  //       isLoading = true;
+  //       categoryList();
+  //     });
+  //   } else {
+  //     showSnackBar(_scaffoldKey, buildTranslate(context, 'no_network'));
+  //   }
+  // }
+
+  // categoryList() {
+  //   print('categoryListApi api call working........');
+  //   categoryListApi(
+  //     userId: '${SharedPrefs.getUserId()}',
+  //   ).then((response) {
+  //     setState(() {
+  //       isLoading = false;
+
+  //       if (response.isNotEmpty) {
+  //         catList = response;
+  //       } else {
+  //         showSnackBar(_scaffoldKey, 'Something went wrong');
+  //       }
+  //     });
+  //   });
+  // }
+
+  Future<void> getHomescreenData() async {
+    bool _isNetWorkavailable = await getNetworkAvailability();
+    print('is_network_available: ' + _isNetWorkavailable.toString());
+
+    if (_isNetWorkavailable) {
+      setState(() {
+        isLoading = true;
+        categoryList();
+      });
+    } else {
+      showSnackBar(_scaffoldKey, buildTranslate(context, 'no_network'));
+    }
+  }
+
+  categoryList() {
+    print('categoryListApi api call working........');
+    getHomeScreen(
+      userId: '${SharedPrefs.getUserId()}',
+    ).then((response) {
+      setState(() {
+        isLoading = false;
+
+        if (response.businessCategories != null) {
+          catList = response.businessCategories;
+        } else {
+          showSnackBar(_scaffoldKey, 'Something went wrong');
+        }
+      });
+    });
   }
 
   var colors = [
-    Colors.red,
-    Colors.blue,
-    Colors.cyan,
-    Colors.green,
-    Colors.yellow,
+    Color(0xFF74df4a).withOpacity(0.5),
+    Color(0xFFf3d300).withOpacity(0.5),
+    Color(0xFFff566a).withOpacity(0.5),
+    Color(0xFFf08a68).withOpacity(0.5),
+    Color(0xFFd2834b).withOpacity(0.5),
   ];
-
-  // @override
-  // Widget build(BuildContext context) {
-  //   return Scaffold(
-  //     backgroundColor: Colors.transparent,
-  //     key: _scaffoldKey,
-  //     drawer: NavigationDrawer(),
-  //     body: buildBody(context),
-  //     appBar: AppBar(
-  //       elevation: 0,
-  //       backgroundColor: Colors.transparent,
-  //       leading: IconButton(
-  //         onPressed: () {
-
-  //         },
-  //         icon: Icon(
-  //           Icons.menu,
-  //           color: Colors.black,
-  //         ),
-  //       ),
-  //       actions: <Widget>[
-  //         GestureDetector(
-  //           onTap: () async {},
-  //           child: Stack(children: <Widget>[
-  //             Center(
-  //               child: IconButton(
-  //                 icon: Icon(
-  //                   Icons.shopping_cart,
-  //                   color: Colors.black,
-  //                 ),
-  //               ),
-  //             ),
-  //             // context.watch<CartCounter>().count != 0
-  //             //     ? Positioned(
-  //             //         right: 8,
-  //             //         top: 10,
-  //             //         child: Consumer<CartCounter>(
-  //             //           builder: (_, counter, __) {
-  //             //             return Container(
-  //             //                 padding: EdgeInsets.all(2),
-  //             //                 decoration: BoxDecoration(
-  //             //                   color: Colors.red,
-  //             //                   borderRadius: BorderRadius.circular(7.5),
-  //             //                 ),
-  //             //                 constraints:
-  //             //                     BoxConstraints(minWidth: 15, minHeight: 15),
-  //             //                 child: Text('${counter.count}',
-  //             //                     style: TextStyle(
-  //             //                         color: Colors.white, fontSize: 11),
-  //             //                     textAlign: TextAlign.center));
-  //             //           },
-  //             //         ),
-  //             //       )
-  //             //     : Container()
-  //           ]),
-  //         )
-  //       ],
-  //     ),
-  //   );
-  // }
 
   Widget buildBody(BuildContext context) {
     return Column(
@@ -115,9 +128,6 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
         ),
-        // ContactUsBottomBar(
-        //   email: widget.products.email,
-        // )
       ],
     );
   }
@@ -128,8 +138,8 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(buildTranslate(context,
-            'featured'),
+          Text(
+            buildTranslate(context, 'featured'),
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),
           ),
@@ -162,12 +172,9 @@ class _HomePageState extends State<HomePage> {
                       children: <Widget>[
                         InkWell(
                           onTap: () {
-                            initialNavigator.currentState.push(MaterialPageRoute(
-                                builder: (context) =>RestaurantScreen ()));
-                            // Navigator.push(
-                            //     context,
-                            //     MaterialPageRoute(
-                            //         builder: (context) => RestaurantScreen()));
+                            initialNavigator.currentState.push(
+                                MaterialPageRoute(
+                                    builder: (context) => RestaurantScreen()));
                           },
                           child: Container(
                             width: MediaQuery.of(context).size.height / 4,
@@ -179,9 +186,6 @@ class _HomePageState extends State<HomePage> {
                                 image: AssetImage('assets/images/burger.png'),
                               ),
                             ),
-                            // child: Image.asset(
-                            //   'assets/images/burger.png',
-                            // ),
                           ),
                         ),
                       ],
@@ -224,11 +228,6 @@ class _HomePageState extends State<HomePage> {
                           image: AssetImage('assets/images/logo1.png'),
                         ),
                       ),
-                      // child: Image.asset(
-                      //   'assets/images/${widget.products.logo}',
-                      //   width: 24,
-                      //   height: 24,
-                      // ),
                     ),
                     SizedBox(
                       width: 4,
@@ -280,8 +279,8 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          Text(buildTranslate(context,
-            'categories'),
+          Text(
+            buildTranslate(context, 'categories'),
             style: TextStyle(
                 fontWeight: FontWeight.bold, fontSize: 18, color: Colors.black),
           ),
@@ -300,40 +299,42 @@ class _HomePageState extends State<HomePage> {
           crossAxisSpacing: 15,
           childAspectRatio: 2.8),
       shrinkWrap: true,
-      itemCount: branches.length,
+      itemCount: catList.length,
       physics: NeverScrollableScrollPhysics(),
       itemBuilder: (context, index) {
         return GestureDetector(
           onTap: () {},
-          child: Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-                //color: Color.fromRGBO(245, 245, 245, 1),
-                color:
-                    Colors.primaries[Random().nextInt(Colors.primaries.length)],
-                borderRadius: BorderRadius.circular(30)),
-            child: Row(
-              children: <Widget>[
-                Container(
-                  width: 40,
-                  height: 40,
-                  decoration: new BoxDecoration(
-                    shape: BoxShape.circle,
-                    image: new DecorationImage(
-                      fit: BoxFit.fill,
-                      image: AssetImage('assets/images/logo1.png'),
+          child: Opacity(
+            opacity: 0.80,
+            child: Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                  //color: Color.fromRGBO(245, 245, 245, 1),
+                  color: Colors.primaries[Random().nextInt(colors.length)],
+                  borderRadius: BorderRadius.circular(30)),
+              child: Row(
+                children: <Widget>[
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: new BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: new DecorationImage(
+                        fit: BoxFit.fill,
+                        image: AssetImage('assets/images/logo1.png'),
+                      ),
                     ),
                   ),
-                ),
-                SizedBox(
-                  width: 4,
-                ),
-                Expanded(
-                    child: Text(
-                  branches[index],
-                  style: TextStyle(fontSize: 13),
-                ))
-              ],
+                  SizedBox(
+                    width: 4,
+                  ),
+                  Expanded(
+                      child: Text(
+                    catList[index].title,
+                    style: TextStyle(fontSize: 13),
+                  ))
+                ],
+              ),
             ),
           ),
         );
@@ -411,8 +412,18 @@ class _HomePageState extends State<HomePage> {
             )
           ],
         ),
-        body: SafeArea(
-          child: buildBody(context),
+        body: ModalProgressHUD(
+          inAsyncCall: isLoading,
+          progressIndicator: CircularProgressIndicator(),
+          child: SafeArea(
+            child: isLoading
+                ? Container()
+                : catList?.length == 0
+                    ? Center(
+                        child: Text('No Data Found'),
+                      )
+                    : buildBody(context),
+          ),
         ),
       ),
     ]);

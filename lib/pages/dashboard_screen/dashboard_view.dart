@@ -5,6 +5,8 @@ import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/notification/notification_list.dart';
 import 'package:quicky_customer/pages/profile/edit_profile.dart';
 import 'package:quicky_customer/pages/profile/profile.dart';
+import 'package:quicky_customer/utils/constants.dart';
+import 'package:quicky_customer/utils/snackbar.dart';
 
 class DashboardPage extends StatefulWidget {
   static const routeName = '/dashboard';
@@ -27,6 +29,7 @@ class _DashboardPageState extends State<DashboardPage> {
   void initState() {
     // TODO: implement initState
     super.initState();
+    SharedPrefs.setisLoggedIn(true);
   }
 
   toCartUi() {
@@ -97,7 +100,7 @@ class _DashboardPageState extends State<DashboardPage> {
           navigatorKeys[1].currentState.popUntil((route) => route.isFirst);
           break;
         case 2:
-           navigatorKeys[2].currentState.popUntil((route) => route.isFirst);
+          navigatorKeys[2].currentState.popUntil((route) => route.isFirst);
           break;
 
         case 3:

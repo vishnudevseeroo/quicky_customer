@@ -6,14 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:modal_progress_hud/modal_progress_hud.dart';
+import 'package:quicky_customer/pages/Api_service/api_service.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/select_city/select_city.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/CommonWidgets.dart';
 import 'package:quicky_customer/utils/FontSizeUtil.dart';
+import 'package:quicky_customer/utils/constants.dart';
+import 'package:quicky_customer/utils/snackbar.dart';
 
 class ProfileScreen extends StatefulWidget {
   static const routeName = '/profilescreen';
+
   @override
   ProfileScreenState createState() => ProfileScreenState();
 }
@@ -23,20 +28,20 @@ class ProfileScreenState extends State<ProfileScreen> {
   var _emailController = new TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
-  var _isShowNameError = false;
-
-  bool _nameEnable = false;
-
   String firstName;
   String lastName;
 
   bool _isEdit = false;
   int selectedCityId = 0;
   String selectedImagePath = "";
+  bool isLoading = false;
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: scaffoldKey,
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -62,7 +67,7 @@ class ProfileScreenState extends State<ProfileScreen> {
           style: TextStyle(color: Colors.black),
         ),
       ),
-      body: contentLayout(),
+      body: ModalProgressHUD(inAsyncCall: isLoading, child: contentLayout()),
     );
   }
 
@@ -70,6 +75,41 @@ class ProfileScreenState extends State<ProfileScreen> {
   void initState() {
     // replace hardacoded text with profile api call
     super.initState();
+  }
+
+  Future<void> updateProfile() async {
+    bool _isNetWorkavailable = await getNetworkAvailability();
+    print('is_network_available: ' + _isNetWorkavailable.toString());
+
+    if (_isNetWorkavailable) {
+      setState(() {
+        if (_formKey.currentState.validate()) {
+          isLoading = true;
+          updateProfiles();
+        }
+      });
+    } else {
+      showSnackBar(scaffoldKey, buildTranslate(context, 'no_network'));
+    }
+  }
+
+  updateProfiles() {
+    print('login or register api call working........');
+    addProfileDetails(
+            userId: '${SharedPrefs.getUserId()}',
+            name: _nameController.text,
+            email: _emailController.text)
+        .then((response) {
+      setState(() {
+        isLoading = false;
+      });
+      if (response.status == "success") {
+        Navigator.push(
+            context, MaterialPageRoute(builder: (context) => SelectCity()));
+      } else {
+        showSnackBar(scaffoldKey, response.message ?? 'Something went wrong');
+      }
+    });
   }
 
   Widget buildFirstName() {
@@ -90,13 +130,13 @@ class ProfileScreenState extends State<ProfileScreen> {
     );
   }
 
-  Widget buildLastName() {
+  Widget buildEmail() {
     return TextFormField(
       controller: _emailController,
       decoration: InputDecoration(labelText: buildTranslate(context, 'email')),
       validator: (String value) {
         if (value.isEmpty) {
-          return buildTranslate(context, 'this field is required');
+          return 'Please enter a valid email Address';
         }
         if (!RegExp(
                 r"[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?")
@@ -116,10 +156,6 @@ class ProfileScreenState extends State<ProfileScreen> {
       child: Column(
         children: [
           getHeaderLayout(),
-          // Padding(
-          //   padding: EdgeInsets.only(left: 25, right: 25),
-          // ),
-
           Padding(
             padding: EdgeInsets.only(left: 30, right: 30, top: 0, bottom: 0),
             child: Form(
@@ -129,7 +165,7 @@ class ProfileScreenState extends State<ProfileScreen> {
                 children: [
                   buildFirstName(),
                   SizedBox(height: 5),
-                  buildLastName(),
+                  buildEmail(),
                   SizedBox(height: 60),
                   getBottomButton()
                 ],
@@ -144,20 +180,9 @@ class ProfileScreenState extends State<ProfileScreen> {
   Widget getHeaderLayout() {
     return Container(
       padding: EdgeInsets.only(bottom: 30, top: 30),
-      // decoration: BoxDecoration(
-      //     image: new DecorationImage(
-      //         image: AssetImage('assets/images/splash.png'), fit: BoxFit.cover),
-      //     boxShadow: [BoxShadow(color: Colors.grey, blurRadius: 10.0)],
-      //     borderRadius: BorderRadius.only(
-      //         bottomLeft: Radius.circular(30),
-      //         bottomRight: Radius.circular(30))),
       width: double.infinity,
       child: Column(
         children: [
-          // commonToolbar(context, 'create_profile', false),
-          // SizedBox(
-          //   height: 15,
-          // ),
           GestureDetector(
             onTap: () {
               openImagePicker();
@@ -187,17 +212,6 @@ class ProfileScreenState extends State<ProfileScreen> {
               ],
             ),
           ),
-          // Container(
-          //   margin: EdgeInsets.only(top: 15, left: 20, right: 20),
-          //   child: Text(
-          //     'Organic',
-          //     textAlign: TextAlign.center,
-          //     style: TextStyle(
-          //         color: Colors.white,
-          //         fontWeight: FontWeight.bold,
-          //         fontSize: heading2),
-          //   ),
-          // ),
         ],
       ),
     );
@@ -207,7 +221,8 @@ class ProfileScreenState extends State<ProfileScreen> {
     return GestureDetector(
       onTap: () {
         print('submit clicked');
-        validateField();
+
+        updateProfile();
       },
       child: Container(
         padding: EdgeInsets.all(20),
@@ -229,15 +244,6 @@ class ProfileScreenState extends State<ProfileScreen> {
         ),
       ),
     );
-  }
-
-  void validateField() {
-    // setState(() {
-    //   Fluttertoast.showToast(msg: 'Profile Updated Successfully');
-    // });
-
-    Navigator.push(
-        context, MaterialPageRoute(builder: (context) => SelectCity()));
   }
 
   Widget getCommonSpinnerForProfile({

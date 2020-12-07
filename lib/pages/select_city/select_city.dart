@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:quicky_customer/pages/Api_service/api_service.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
@@ -7,7 +8,6 @@ import 'package:quicky_customer/pages/localization/language_constants.dart';
 import 'package:quicky_customer/pages/success/success_screen.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
 import 'package:quicky_customer/utils/CommonWidgets.dart';
-import 'package:quicky_customer/utils/FontSizeUtil.dart';
 
 import 'models/citylist.dart';
 
