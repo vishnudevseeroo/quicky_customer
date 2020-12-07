@@ -8,7 +8,6 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 import 'package:pin_input_text_field/pin_input_text_field.dart';
 import 'package:quicky_customer/pages/Api_service/api_service.dart';
-import 'package:quicky_customer/pages/dashboard_screen/dashboard_screen.dart';
 import 'package:quicky_customer/pages/localization/app_localizations.dart';
 import 'package:quicky_customer/pages/profile/profile.dart';
 import 'package:quicky_customer/utils/ColorUtil.dart';
@@ -308,8 +307,7 @@ class OtpState extends State<OtpScreen> {
         print(SharedPrefs.getTocken());
         if (response.profileStatus == true) {
           SharedPrefs.setisLoggedIn(true);
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => DashboardScreen()));
+
         } else {
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => ProfileScreen()));
