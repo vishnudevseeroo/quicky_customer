@@ -306,6 +306,7 @@ class OtpState extends State<OtpScreen> {
         print(SharedPrefs.getTocken());
         if (response.profileStatus == true) {
           SharedPrefs.setisLoggedIn(true);
+
           Navigator.push(context,
               MaterialPageRoute(builder: (context) => DashboardPage()));
         } else {
